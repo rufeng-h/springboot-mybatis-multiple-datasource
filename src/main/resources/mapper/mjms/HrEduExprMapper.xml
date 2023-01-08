@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.mjms.HrEduExprMapper">
+  <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.mjms.HrEduExpr">
+    <!--@mbg.generated-->
+    <!--@Table hr_edu_expr-->
+    <id column="edu_id" jdbcType="BIGINT" property="eduId" />
+    <result column="edu_education" jdbcType="CHAR" property="eduEducation" />
+    <result column="edu_school" jdbcType="VARCHAR" property="eduSchool" />
+    <result column="edu_major" jdbcType="VARCHAR" property="eduMajor" />
+    <result column="edu_major_desc" jdbcType="LONGVARCHAR" property="eduMajorDesc" />
+    <result column="edu_start_date" jdbcType="TIMESTAMP" property="eduStartDate" />
+    <result column="edu_end_date" jdbcType="TIMESTAMP" property="eduEndDate" />
+    <result column="edu_created" jdbcType="TIMESTAMP" property="eduCreated" />
+    <result column="edu_modified" jdbcType="TIMESTAMP" property="eduModified" />
+    <result column="edu_cand_id" jdbcType="BIGINT" property="eduCandId" />
+    <result column="edu_rs_id" jdbcType="BIGINT" property="eduRsId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    edu_id, edu_education, edu_school, edu_major, edu_major_desc, edu_start_date, edu_end_date, 
+    edu_created, edu_modified, edu_cand_id, edu_rs_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from hr_edu_expr
+    where edu_id = #{eduId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from hr_edu_expr
+    where edu_id = #{eduId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="edu_id" keyProperty="eduId" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrEduExpr" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into hr_edu_expr (edu_education, edu_school, edu_major, 
+      edu_major_desc, edu_start_date, edu_end_date, 
+      edu_created, edu_modified, edu_cand_id, 
+      edu_rs_id)
+    values (#{eduEducation,jdbcType=CHAR}, #{eduSchool,jdbcType=VARCHAR}, #{eduMajor,jdbcType=VARCHAR}, 
+      #{eduMajorDesc,jdbcType=LONGVARCHAR}, #{eduStartDate,jdbcType=TIMESTAMP}, #{eduEndDate,jdbcType=TIMESTAMP}, 
+      #{eduCreated,jdbcType=TIMESTAMP}, #{eduModified,jdbcType=TIMESTAMP}, #{eduCandId,jdbcType=BIGINT}, 
+      #{eduRsId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="edu_id" keyProperty="eduId" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrEduExpr" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into hr_edu_expr
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="eduEducation != null">
+        edu_education,
+      </if>
+      <if test="eduSchool != null">
+        edu_school,
+      </if>
+      <if test="eduMajor != null">
+        edu_major,
+      </if>
+      <if test="eduMajorDesc != null">
+        edu_major_desc,
+      </if>
+      <if test="eduStartDate != null">
+        edu_start_date,
+      </if>
+      <if test="eduEndDate != null">
+        edu_end_date,
+      </if>
+      <if test="eduCreated != null">
+        edu_created,
+      </if>
+      <if test="eduModified != null">
+        edu_modified,
+      </if>
+      <if test="eduCandId != null">
+        edu_cand_id,
+      </if>
+      <if test="eduRsId != null">
+        edu_rs_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="eduEducation != null">
+        #{eduEducation,jdbcType=CHAR},
+      </if>
+      <if test="eduSchool != null">
+        #{eduSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="eduMajor != null">
+        #{eduMajor,jdbcType=VARCHAR},
+      </if>
+      <if test="eduMajorDesc != null">
+        #{eduMajorDesc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="eduStartDate != null">
+        #{eduStartDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eduEndDate != null">
+        #{eduEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eduCreated != null">
+        #{eduCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eduModified != null">
+        #{eduModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eduCandId != null">
+        #{eduCandId,jdbcType=BIGINT},
+      </if>
+      <if test="eduRsId != null">
+        #{eduRsId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrEduExpr">
+    <!--@mbg.generated-->
+    update hr_edu_expr
+    <set>
+      <if test="eduEducation != null">
+        edu_education = #{eduEducation,jdbcType=CHAR},
+      </if>
+      <if test="eduSchool != null">
+        edu_school = #{eduSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="eduMajor != null">
+        edu_major = #{eduMajor,jdbcType=VARCHAR},
+      </if>
+      <if test="eduMajorDesc != null">
+        edu_major_desc = #{eduMajorDesc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="eduStartDate != null">
+        edu_start_date = #{eduStartDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eduEndDate != null">
+        edu_end_date = #{eduEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eduCreated != null">
+        edu_created = #{eduCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eduModified != null">
+        edu_modified = #{eduModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eduCandId != null">
+        edu_cand_id = #{eduCandId,jdbcType=BIGINT},
+      </if>
+      <if test="eduRsId != null">
+        edu_rs_id = #{eduRsId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where edu_id = #{eduId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrEduExpr">
+    <!--@mbg.generated-->
+    update hr_edu_expr
+    set edu_education = #{eduEducation,jdbcType=CHAR},
+      edu_school = #{eduSchool,jdbcType=VARCHAR},
+      edu_major = #{eduMajor,jdbcType=VARCHAR},
+      edu_major_desc = #{eduMajorDesc,jdbcType=LONGVARCHAR},
+      edu_start_date = #{eduStartDate,jdbcType=TIMESTAMP},
+      edu_end_date = #{eduEndDate,jdbcType=TIMESTAMP},
+      edu_created = #{eduCreated,jdbcType=TIMESTAMP},
+      edu_modified = #{eduModified,jdbcType=TIMESTAMP},
+      edu_cand_id = #{eduCandId,jdbcType=BIGINT},
+      edu_rs_id = #{eduRsId,jdbcType=BIGINT}
+    where edu_id = #{eduId,jdbcType=BIGINT}
+  </update>
+</mapper>

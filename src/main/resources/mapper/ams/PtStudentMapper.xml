@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.ams.PtStudentMapper">
+    <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.ams.PtStudent">
+        <!--@mbg.generated-->
+        <!--@Table pt_student-->
+        <id column="stu_id" jdbcType="VARCHAR" property="stuId"/>
+        <result column="sid" jdbcType="BIGINT" property="sid"/>
+        <result column="stu_name" jdbcType="VARCHAR" property="stuName"/>
+        <result column="stu_birth" jdbcType="DATE" property="stuBirth"/>
+        <result column="stu_gender" jdbcType="OTHER" property="stuGender"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="avatar" jdbcType="VARCHAR" property="avatar"/>
+        <result column="cls_code" jdbcType="VARCHAR" property="clsCode"/>
+        <result column="stu_created" jdbcType="TIMESTAMP" property="stuCreated"/>
+        <result column="stu_modified" jdbcType="TIMESTAMP" property="stuModified"/>
+        <result column="stu_last_login" jdbcType="TIMESTAMP" property="stuLastLogin"/>
+        <result column="stu_desp" jdbcType="VARCHAR" property="stuDesp"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        stu_id,
+        sid,
+        stu_name,
+        stu_birth,
+        stu_gender,
+        `password`,
+        avatar,
+        cls_code,
+        stu_created,
+        stu_modified,
+        stu_last_login,
+        stu_desp
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from pt_student
+        where stu_id = #{stuId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        <!--@mbg.generated-->
+        delete
+        from pt_student
+        where stu_id = #{stuId,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtStudent">
+        <!--@mbg.generated-->
+        insert into pt_student (stu_id, sid, stu_name,
+                                stu_birth, stu_gender, `password`,
+                                avatar, cls_code, stu_created,
+                                stu_modified, stu_last_login, stu_desp)
+        values (#{stuId,jdbcType=VARCHAR}, #{sid,jdbcType=BIGINT}, #{stuName,jdbcType=VARCHAR},
+                #{stuBirth,jdbcType=DATE}, #{stuGender,jdbcType=OTHER}, #{password,jdbcType=VARCHAR},
+                #{avatar,jdbcType=VARCHAR}, #{clsCode,jdbcType=VARCHAR}, #{stuCreated,jdbcType=TIMESTAMP},
+                #{stuModified,jdbcType=TIMESTAMP}, #{stuLastLogin,jdbcType=TIMESTAMP}, #{stuDesp,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtStudent">
+        <!--@mbg.generated-->
+        insert into pt_student
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="stuId != null">
+                stu_id,
+            </if>
+            <if test="sid != null">
+                sid,
+            </if>
+            <if test="stuName != null">
+                stu_name,
+            </if>
+            <if test="stuBirth != null">
+                stu_birth,
+            </if>
+            <if test="stuGender != null">
+                stu_gender,
+            </if>
+            <if test="password != null">
+                `password`,
+            </if>
+            <if test="avatar != null">
+                avatar,
+            </if>
+            <if test="clsCode != null">
+                cls_code,
+            </if>
+            <if test="stuCreated != null">
+                stu_created,
+            </if>
+            <if test="stuModified != null">
+                stu_modified,
+            </if>
+            <if test="stuLastLogin != null">
+                stu_last_login,
+            </if>
+            <if test="stuDesp != null">
+                stu_desp,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="stuId != null">
+                #{stuId,jdbcType=VARCHAR},
+            </if>
+            <if test="sid != null">
+                #{sid,jdbcType=BIGINT},
+            </if>
+            <if test="stuName != null">
+                #{stuName,jdbcType=VARCHAR},
+            </if>
+            <if test="stuBirth != null">
+                #{stuBirth,jdbcType=DATE},
+            </if>
+            <if test="stuGender != null">
+                #{stuGender,jdbcType=OTHER},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="avatar != null">
+                #{avatar,jdbcType=VARCHAR},
+            </if>
+            <if test="clsCode != null">
+                #{clsCode,jdbcType=VARCHAR},
+            </if>
+            <if test="stuCreated != null">
+                #{stuCreated,jdbcType=TIMESTAMP},
+            </if>
+            <if test="stuModified != null">
+                #{stuModified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="stuLastLogin != null">
+                #{stuLastLogin,jdbcType=TIMESTAMP},
+            </if>
+            <if test="stuDesp != null">
+                #{stuDesp,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective"
+            parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtStudent">
+        <!--@mbg.generated-->
+        update pt_student
+        <set>
+            <if test="sid != null">
+                sid = #{sid,jdbcType=BIGINT},
+            </if>
+            <if test="stuName != null">
+                stu_name = #{stuName,jdbcType=VARCHAR},
+            </if>
+            <if test="stuBirth != null">
+                stu_birth = #{stuBirth,jdbcType=DATE},
+            </if>
+            <if test="stuGender != null">
+                stu_gender = #{stuGender,jdbcType=OTHER},
+            </if>
+            <if test="password != null">
+                `password` = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="avatar != null">
+                avatar = #{avatar,jdbcType=VARCHAR},
+            </if>
+            <if test="clsCode != null">
+                cls_code = #{clsCode,jdbcType=VARCHAR},
+            </if>
+            <if test="stuCreated != null">
+                stu_created = #{stuCreated,jdbcType=TIMESTAMP},
+            </if>
+            <if test="stuModified != null">
+                stu_modified = #{stuModified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="stuLastLogin != null">
+                stu_last_login = #{stuLastLogin,jdbcType=TIMESTAMP},
+            </if>
+            <if test="stuDesp != null">
+                stu_desp = #{stuDesp,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where stu_id = #{stuId,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtStudent">
+        <!--@mbg.generated-->
+        update pt_student
+        set sid            = #{sid,jdbcType=BIGINT},
+            stu_name       = #{stuName,jdbcType=VARCHAR},
+            stu_birth      = #{stuBirth,jdbcType=DATE},
+            stu_gender     = #{stuGender,jdbcType=OTHER},
+            `password`     = #{password,jdbcType=VARCHAR},
+            avatar         = #{avatar,jdbcType=VARCHAR},
+            cls_code       = #{clsCode,jdbcType=VARCHAR},
+            stu_created    = #{stuCreated,jdbcType=TIMESTAMP},
+            stu_modified   = #{stuModified,jdbcType=TIMESTAMP},
+            stu_last_login = #{stuLastLogin,jdbcType=TIMESTAMP},
+            stu_desp       = #{stuDesp,jdbcType=VARCHAR}
+        where stu_id = #{stuId,jdbcType=VARCHAR}
+    </update>
+</mapper>

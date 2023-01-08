@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.ams.PtSubStudentMapper">
+  <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.ams.PtSubStudent">
+    <!--@mbg.generated-->
+    <!--@Table pt_sub_student-->
+    <id column="sub_id" jdbcType="BIGINT" property="subId" />
+    <id column="grade" jdbcType="INTEGER" property="grade" />
+    <id column="gender" jdbcType="CHAR" property="gender" />
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="subs_created" jdbcType="TIMESTAMP" property="subsCreated" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    sub_id, grade, gender, id, subs_created
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from pt_sub_student
+    where sub_id = #{subId,jdbcType=BIGINT}
+      and grade = #{grade,jdbcType=INTEGER}
+      and gender = #{gender,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    <!--@mbg.generated-->
+    delete from pt_sub_student
+    where sub_id = #{subId,jdbcType=BIGINT}
+      and grade = #{grade,jdbcType=INTEGER}
+      and gender = #{gender,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtSubStudent">
+    <!--@mbg.generated-->
+    insert into pt_sub_student (sub_id, grade, gender, 
+      id, subs_created)
+    values (#{subId,jdbcType=BIGINT}, #{grade,jdbcType=INTEGER}, #{gender,jdbcType=CHAR}, 
+      #{id,jdbcType=BIGINT}, #{subsCreated,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtSubStudent">
+    <!--@mbg.generated-->
+    insert into pt_sub_student
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="subId != null">
+        sub_id,
+      </if>
+      <if test="grade != null">
+        grade,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="id != null">
+        id,
+      </if>
+      <if test="subsCreated != null">
+        subs_created,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="subId != null">
+        #{subId,jdbcType=BIGINT},
+      </if>
+      <if test="grade != null">
+        #{grade,jdbcType=INTEGER},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=CHAR},
+      </if>
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="subsCreated != null">
+        #{subsCreated,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtSubStudent">
+    <!--@mbg.generated-->
+    update pt_sub_student
+    <set>
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="subsCreated != null">
+        subs_created = #{subsCreated,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where sub_id = #{subId,jdbcType=BIGINT}
+      and grade = #{grade,jdbcType=INTEGER}
+      and gender = #{gender,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtSubStudent">
+    <!--@mbg.generated-->
+    update pt_sub_student
+    set id = #{id,jdbcType=BIGINT},
+      subs_created = #{subsCreated,jdbcType=TIMESTAMP}
+    where sub_id = #{subId,jdbcType=BIGINT}
+      and grade = #{grade,jdbcType=INTEGER}
+      and gender = #{gender,jdbcType=CHAR}
+  </update>
+</mapper>

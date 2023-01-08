@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.mjms.HrJobAtchMapper">
+  <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.mjms.HrJobAtch">
+    <!--@mbg.generated-->
+    <!--@Table hr_job_atch-->
+    <id column="atch_id" jdbcType="BIGINT" property="atchId" />
+    <result column="atch_path" jdbcType="VARCHAR" property="atchPath" />
+    <result column="atch_job_id" jdbcType="BIGINT" property="atchJobId" />
+    <result column="atch_created" jdbcType="TIMESTAMP" property="atchCreated" />
+    <result column="atch_name" jdbcType="VARCHAR" property="atchName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    atch_id, atch_path, atch_job_id, atch_created, atch_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from hr_job_atch
+    where atch_id = #{atchId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from hr_job_atch
+    where atch_id = #{atchId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="atch_id" keyProperty="atchId" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrJobAtch" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into hr_job_atch (atch_path, atch_job_id, atch_created, 
+      atch_name)
+    values (#{atchPath,jdbcType=VARCHAR}, #{atchJobId,jdbcType=BIGINT}, #{atchCreated,jdbcType=TIMESTAMP}, 
+      #{atchName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="atch_id" keyProperty="atchId" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrJobAtch" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into hr_job_atch
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="atchPath != null">
+        atch_path,
+      </if>
+      <if test="atchJobId != null">
+        atch_job_id,
+      </if>
+      <if test="atchCreated != null">
+        atch_created,
+      </if>
+      <if test="atchName != null">
+        atch_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="atchPath != null">
+        #{atchPath,jdbcType=VARCHAR},
+      </if>
+      <if test="atchJobId != null">
+        #{atchJobId,jdbcType=BIGINT},
+      </if>
+      <if test="atchCreated != null">
+        #{atchCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="atchName != null">
+        #{atchName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrJobAtch">
+    <!--@mbg.generated-->
+    update hr_job_atch
+    <set>
+      <if test="atchPath != null">
+        atch_path = #{atchPath,jdbcType=VARCHAR},
+      </if>
+      <if test="atchJobId != null">
+        atch_job_id = #{atchJobId,jdbcType=BIGINT},
+      </if>
+      <if test="atchCreated != null">
+        atch_created = #{atchCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="atchName != null">
+        atch_name = #{atchName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where atch_id = #{atchId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrJobAtch">
+    <!--@mbg.generated-->
+    update hr_job_atch
+    set atch_path = #{atchPath,jdbcType=VARCHAR},
+      atch_job_id = #{atchJobId,jdbcType=BIGINT},
+      atch_created = #{atchCreated,jdbcType=TIMESTAMP},
+      atch_name = #{atchName,jdbcType=VARCHAR}
+    where atch_id = #{atchId,jdbcType=BIGINT}
+  </update>
+</mapper>

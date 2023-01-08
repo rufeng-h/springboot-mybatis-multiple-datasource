@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.ams.PtRoleMapper">
+  <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.ams.PtRole">
+    <!--@mbg.generated-->
+    <!--@Table pt_role-->
+    <id column="role_id" jdbcType="BIGINT" property="roleId" />
+    <result column="role_name" jdbcType="VARCHAR" property="roleName" />
+    <result column="role_created" jdbcType="TIMESTAMP" property="roleCreated" />
+    <result column="role_modified" jdbcType="TIMESTAMP" property="roleModified" />
+    <result column="role_desp" jdbcType="VARCHAR" property="roleDesp" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    role_id, role_name, role_created, role_modified, role_desp, `status`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from pt_role
+    where role_id = #{roleId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from pt_role
+    where role_id = #{roleId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="role_id" keyProperty="roleId" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtRole" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pt_role (role_name, role_created, role_modified, 
+      role_desp, `status`)
+    values (#{roleName,jdbcType=VARCHAR}, #{roleCreated,jdbcType=TIMESTAMP}, #{roleModified,jdbcType=TIMESTAMP}, 
+      #{roleDesp,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="role_id" keyProperty="roleId" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtRole" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pt_role
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="roleName != null">
+        role_name,
+      </if>
+      <if test="roleCreated != null">
+        role_created,
+      </if>
+      <if test="roleModified != null">
+        role_modified,
+      </if>
+      <if test="roleDesp != null">
+        role_desp,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="roleName != null">
+        #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="roleCreated != null">
+        #{roleCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="roleModified != null">
+        #{roleModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="roleDesp != null">
+        #{roleDesp,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtRole">
+    <!--@mbg.generated-->
+    update pt_role
+    <set>
+      <if test="roleName != null">
+        role_name = #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="roleCreated != null">
+        role_created = #{roleCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="roleModified != null">
+        role_modified = #{roleModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="roleDesp != null">
+        role_desp = #{roleDesp,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=TINYINT},
+      </if>
+    </set>
+    where role_id = #{roleId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtRole">
+    <!--@mbg.generated-->
+    update pt_role
+    set role_name = #{roleName,jdbcType=VARCHAR},
+      role_created = #{roleCreated,jdbcType=TIMESTAMP},
+      role_modified = #{roleModified,jdbcType=TIMESTAMP},
+      role_desp = #{roleDesp,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=TINYINT}
+    where role_id = #{roleId,jdbcType=BIGINT}
+  </update>
+</mapper>

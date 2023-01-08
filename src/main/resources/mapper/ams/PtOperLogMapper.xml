@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.ams.PtOperLogMapper">
+  <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.ams.PtOperLog">
+    <!--@mbg.generated-->
+    <!--@Table pt_oper_log-->
+    <id column="oper_id" jdbcType="BIGINT" property="operId" />
+    <result column="oper_desc" jdbcType="VARCHAR" property="operDesc" />
+    <result column="oper_req_param" jdbcType="LONGVARCHAR" property="operReqParam" />
+    <result column="oper_exp" jdbcType="LONGVARCHAR" property="operExp" />
+    <result column="oper_method" jdbcType="VARCHAR" property="operMethod" />
+    <result column="oper_user_id" jdbcType="VARCHAR" property="operUserId" />
+    <result column="oper_user_name" jdbcType="VARCHAR" property="operUserName" />
+    <result column="oper_uri" jdbcType="VARCHAR" property="operUri" />
+    <result column="oper_ip" jdbcType="VARCHAR" property="operIp" />
+    <result column="oper_time" jdbcType="TIMESTAMP" property="operTime" />
+    <result column="oper_status" jdbcType="INTEGER" property="operStatus" />
+    <result column="oper_type" jdbcType="VARCHAR" property="operType" />
+    <result column="oper_user_type" jdbcType="CHAR" property="operUserType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    oper_id, oper_desc, oper_req_param, oper_exp, oper_method, oper_user_id, oper_user_name, 
+    oper_uri, oper_ip, oper_time, oper_status, oper_type, oper_user_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from pt_oper_log
+    where oper_id = #{operId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from pt_oper_log
+    where oper_id = #{operId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="oper_id" keyProperty="operId" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtOperLog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pt_oper_log (oper_desc, oper_req_param, oper_exp, 
+      oper_method, oper_user_id, oper_user_name, 
+      oper_uri, oper_ip, oper_time, 
+      oper_status, oper_type, oper_user_type
+      )
+    values (#{operDesc,jdbcType=VARCHAR}, #{operReqParam,jdbcType=LONGVARCHAR}, #{operExp,jdbcType=LONGVARCHAR}, 
+      #{operMethod,jdbcType=VARCHAR}, #{operUserId,jdbcType=VARCHAR}, #{operUserName,jdbcType=VARCHAR}, 
+      #{operUri,jdbcType=VARCHAR}, #{operIp,jdbcType=VARCHAR}, #{operTime,jdbcType=TIMESTAMP}, 
+      #{operStatus,jdbcType=INTEGER}, #{operType,jdbcType=VARCHAR}, #{operUserType,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="oper_id" keyProperty="operId" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtOperLog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pt_oper_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="operDesc != null">
+        oper_desc,
+      </if>
+      <if test="operReqParam != null">
+        oper_req_param,
+      </if>
+      <if test="operExp != null">
+        oper_exp,
+      </if>
+      <if test="operMethod != null">
+        oper_method,
+      </if>
+      <if test="operUserId != null">
+        oper_user_id,
+      </if>
+      <if test="operUserName != null">
+        oper_user_name,
+      </if>
+      <if test="operUri != null">
+        oper_uri,
+      </if>
+      <if test="operIp != null">
+        oper_ip,
+      </if>
+      <if test="operTime != null">
+        oper_time,
+      </if>
+      <if test="operStatus != null">
+        oper_status,
+      </if>
+      <if test="operType != null">
+        oper_type,
+      </if>
+      <if test="operUserType != null">
+        oper_user_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="operDesc != null">
+        #{operDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="operReqParam != null">
+        #{operReqParam,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="operExp != null">
+        #{operExp,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="operMethod != null">
+        #{operMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="operUserId != null">
+        #{operUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="operUserName != null">
+        #{operUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="operUri != null">
+        #{operUri,jdbcType=VARCHAR},
+      </if>
+      <if test="operIp != null">
+        #{operIp,jdbcType=VARCHAR},
+      </if>
+      <if test="operTime != null">
+        #{operTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operStatus != null">
+        #{operStatus,jdbcType=INTEGER},
+      </if>
+      <if test="operType != null">
+        #{operType,jdbcType=VARCHAR},
+      </if>
+      <if test="operUserType != null">
+        #{operUserType,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtOperLog">
+    <!--@mbg.generated-->
+    update pt_oper_log
+    <set>
+      <if test="operDesc != null">
+        oper_desc = #{operDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="operReqParam != null">
+        oper_req_param = #{operReqParam,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="operExp != null">
+        oper_exp = #{operExp,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="operMethod != null">
+        oper_method = #{operMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="operUserId != null">
+        oper_user_id = #{operUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="operUserName != null">
+        oper_user_name = #{operUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="operUri != null">
+        oper_uri = #{operUri,jdbcType=VARCHAR},
+      </if>
+      <if test="operIp != null">
+        oper_ip = #{operIp,jdbcType=VARCHAR},
+      </if>
+      <if test="operTime != null">
+        oper_time = #{operTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operStatus != null">
+        oper_status = #{operStatus,jdbcType=INTEGER},
+      </if>
+      <if test="operType != null">
+        oper_type = #{operType,jdbcType=VARCHAR},
+      </if>
+      <if test="operUserType != null">
+        oper_user_type = #{operUserType,jdbcType=CHAR},
+      </if>
+    </set>
+    where oper_id = #{operId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtOperLog">
+    <!--@mbg.generated-->
+    update pt_oper_log
+    set oper_desc = #{operDesc,jdbcType=VARCHAR},
+      oper_req_param = #{operReqParam,jdbcType=LONGVARCHAR},
+      oper_exp = #{operExp,jdbcType=LONGVARCHAR},
+      oper_method = #{operMethod,jdbcType=VARCHAR},
+      oper_user_id = #{operUserId,jdbcType=VARCHAR},
+      oper_user_name = #{operUserName,jdbcType=VARCHAR},
+      oper_uri = #{operUri,jdbcType=VARCHAR},
+      oper_ip = #{operIp,jdbcType=VARCHAR},
+      oper_time = #{operTime,jdbcType=TIMESTAMP},
+      oper_status = #{operStatus,jdbcType=INTEGER},
+      oper_type = #{operType,jdbcType=VARCHAR},
+      oper_user_type = #{operUserType,jdbcType=CHAR}
+    where oper_id = #{operId,jdbcType=BIGINT}
+  </update>
+</mapper>

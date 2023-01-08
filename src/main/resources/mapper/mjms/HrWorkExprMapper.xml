@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.mjms.HrWorkExprMapper">
+  <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.mjms.HrWorkExpr">
+    <!--@mbg.generated-->
+    <!--@Table hr_work_expr-->
+    <id column="work_id" jdbcType="BIGINT" property="workId" />
+    <result column="work_comp" jdbcType="VARCHAR" property="workComp" />
+    <result column="work_ind" jdbcType="VARCHAR" property="workInd" />
+    <result column="work_start" jdbcType="TIMESTAMP" property="workStart" />
+    <result column="work_end" jdbcType="TIMESTAMP" property="workEnd" />
+    <result column="work_comp_size" jdbcType="CHAR" property="workCompSize" />
+    <result column="work_position" jdbcType="VARCHAR" property="workPosition" />
+    <result column="work_comp_type" jdbcType="CHAR" property="workCompType" />
+    <result column="work_desc" jdbcType="LONGVARCHAR" property="workDesc" />
+    <result column="work_created" jdbcType="TIMESTAMP" property="workCreated" />
+    <result column="work_modified" jdbcType="TIMESTAMP" property="workModified" />
+    <result column="work_cand_id" jdbcType="BIGINT" property="workCandId" />
+    <result column="work_rs_id" jdbcType="BIGINT" property="workRsId" />
+    <result column="work_type" jdbcType="CHAR" property="workType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    work_id, work_comp, work_ind, work_start, work_end, work_comp_size, work_position, 
+    work_comp_type, work_desc, work_created, work_modified, work_cand_id, work_rs_id, 
+    work_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from hr_work_expr
+    where work_id = #{workId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from hr_work_expr
+    where work_id = #{workId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="work_id" keyProperty="workId" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrWorkExpr" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into hr_work_expr (work_comp, work_ind, work_start, 
+      work_end, work_comp_size, work_position, 
+      work_comp_type, work_desc, work_created, 
+      work_modified, work_cand_id, work_rs_id, 
+      work_type)
+    values (#{workComp,jdbcType=VARCHAR}, #{workInd,jdbcType=VARCHAR}, #{workStart,jdbcType=TIMESTAMP}, 
+      #{workEnd,jdbcType=TIMESTAMP}, #{workCompSize,jdbcType=CHAR}, #{workPosition,jdbcType=VARCHAR}, 
+      #{workCompType,jdbcType=CHAR}, #{workDesc,jdbcType=LONGVARCHAR}, #{workCreated,jdbcType=TIMESTAMP}, 
+      #{workModified,jdbcType=TIMESTAMP}, #{workCandId,jdbcType=BIGINT}, #{workRsId,jdbcType=BIGINT}, 
+      #{workType,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="work_id" keyProperty="workId" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrWorkExpr" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into hr_work_expr
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="workComp != null">
+        work_comp,
+      </if>
+      <if test="workInd != null">
+        work_ind,
+      </if>
+      <if test="workStart != null">
+        work_start,
+      </if>
+      <if test="workEnd != null">
+        work_end,
+      </if>
+      <if test="workCompSize != null">
+        work_comp_size,
+      </if>
+      <if test="workPosition != null">
+        work_position,
+      </if>
+      <if test="workCompType != null">
+        work_comp_type,
+      </if>
+      <if test="workDesc != null">
+        work_desc,
+      </if>
+      <if test="workCreated != null">
+        work_created,
+      </if>
+      <if test="workModified != null">
+        work_modified,
+      </if>
+      <if test="workCandId != null">
+        work_cand_id,
+      </if>
+      <if test="workRsId != null">
+        work_rs_id,
+      </if>
+      <if test="workType != null">
+        work_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="workComp != null">
+        #{workComp,jdbcType=VARCHAR},
+      </if>
+      <if test="workInd != null">
+        #{workInd,jdbcType=VARCHAR},
+      </if>
+      <if test="workStart != null">
+        #{workStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="workEnd != null">
+        #{workEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="workCompSize != null">
+        #{workCompSize,jdbcType=CHAR},
+      </if>
+      <if test="workPosition != null">
+        #{workPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="workCompType != null">
+        #{workCompType,jdbcType=CHAR},
+      </if>
+      <if test="workDesc != null">
+        #{workDesc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="workCreated != null">
+        #{workCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="workModified != null">
+        #{workModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="workCandId != null">
+        #{workCandId,jdbcType=BIGINT},
+      </if>
+      <if test="workRsId != null">
+        #{workRsId,jdbcType=BIGINT},
+      </if>
+      <if test="workType != null">
+        #{workType,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrWorkExpr">
+    <!--@mbg.generated-->
+    update hr_work_expr
+    <set>
+      <if test="workComp != null">
+        work_comp = #{workComp,jdbcType=VARCHAR},
+      </if>
+      <if test="workInd != null">
+        work_ind = #{workInd,jdbcType=VARCHAR},
+      </if>
+      <if test="workStart != null">
+        work_start = #{workStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="workEnd != null">
+        work_end = #{workEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="workCompSize != null">
+        work_comp_size = #{workCompSize,jdbcType=CHAR},
+      </if>
+      <if test="workPosition != null">
+        work_position = #{workPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="workCompType != null">
+        work_comp_type = #{workCompType,jdbcType=CHAR},
+      </if>
+      <if test="workDesc != null">
+        work_desc = #{workDesc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="workCreated != null">
+        work_created = #{workCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="workModified != null">
+        work_modified = #{workModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="workCandId != null">
+        work_cand_id = #{workCandId,jdbcType=BIGINT},
+      </if>
+      <if test="workRsId != null">
+        work_rs_id = #{workRsId,jdbcType=BIGINT},
+      </if>
+      <if test="workType != null">
+        work_type = #{workType,jdbcType=CHAR},
+      </if>
+    </set>
+    where work_id = #{workId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrWorkExpr">
+    <!--@mbg.generated-->
+    update hr_work_expr
+    set work_comp = #{workComp,jdbcType=VARCHAR},
+      work_ind = #{workInd,jdbcType=VARCHAR},
+      work_start = #{workStart,jdbcType=TIMESTAMP},
+      work_end = #{workEnd,jdbcType=TIMESTAMP},
+      work_comp_size = #{workCompSize,jdbcType=CHAR},
+      work_position = #{workPosition,jdbcType=VARCHAR},
+      work_comp_type = #{workCompType,jdbcType=CHAR},
+      work_desc = #{workDesc,jdbcType=LONGVARCHAR},
+      work_created = #{workCreated,jdbcType=TIMESTAMP},
+      work_modified = #{workModified,jdbcType=TIMESTAMP},
+      work_cand_id = #{workCandId,jdbcType=BIGINT},
+      work_rs_id = #{workRsId,jdbcType=BIGINT},
+      work_type = #{workType,jdbcType=CHAR}
+    where work_id = #{workId,jdbcType=BIGINT}
+  </update>
+</mapper>

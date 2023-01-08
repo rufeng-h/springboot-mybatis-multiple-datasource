@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.ams.PtScoreSheetMapper">
+  <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.ams.PtScoreSheet">
+    <!--@mbg.generated-->
+    <!--@Table pt_score_sheet-->
+    <id column="sub_id" jdbcType="BIGINT" property="subId" />
+    <id column="gender" jdbcType="CHAR" property="gender" />
+    <id column="grade" jdbcType="INTEGER" property="grade" />
+    <id column="upper" jdbcType="DECIMAL" property="upper" />
+    <id column="lower" jdbcType="DECIMAL" property="lower" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="last_modify_time" jdbcType="TIMESTAMP" property="lastModifyTime" />
+    <result column="level" jdbcType="VARCHAR" property="level" />
+    <result column="id" jdbcType="BIGINT" property="id" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    sub_id, gender, grade, `upper`, `lower`, score, created_time, last_modify_time, `level`, 
+    id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from pt_score_sheet
+    where sub_id = #{subId,jdbcType=BIGINT}
+      and gender = #{gender,jdbcType=CHAR}
+      and grade = #{grade,jdbcType=INTEGER}
+      and `upper` = #{upper,jdbcType=DECIMAL}
+      and `lower` = #{lower,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    <!--@mbg.generated-->
+    delete from pt_score_sheet
+    where sub_id = #{subId,jdbcType=BIGINT}
+      and gender = #{gender,jdbcType=CHAR}
+      and grade = #{grade,jdbcType=INTEGER}
+      and `upper` = #{upper,jdbcType=DECIMAL}
+      and `lower` = #{lower,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtScoreSheet">
+    <!--@mbg.generated-->
+    insert into pt_score_sheet (sub_id, gender, grade, 
+      `upper`, `lower`, score, 
+      created_time, last_modify_time, `level`, 
+      id)
+    values (#{subId,jdbcType=BIGINT}, #{gender,jdbcType=CHAR}, #{grade,jdbcType=INTEGER}, 
+      #{upper,jdbcType=DECIMAL}, #{lower,jdbcType=DECIMAL}, #{score,jdbcType=INTEGER}, 
+      #{createdTime,jdbcType=TIMESTAMP}, #{lastModifyTime,jdbcType=TIMESTAMP}, #{level,jdbcType=VARCHAR}, 
+      #{id,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtScoreSheet">
+    <!--@mbg.generated-->
+    insert into pt_score_sheet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="subId != null">
+        sub_id,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="grade != null">
+        grade,
+      </if>
+      <if test="upper != null">
+        `upper`,
+      </if>
+      <if test="lower != null">
+        `lower`,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="lastModifyTime != null">
+        last_modify_time,
+      </if>
+      <if test="level != null">
+        `level`,
+      </if>
+      <if test="id != null">
+        id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="subId != null">
+        #{subId,jdbcType=BIGINT},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=CHAR},
+      </if>
+      <if test="grade != null">
+        #{grade,jdbcType=INTEGER},
+      </if>
+      <if test="upper != null">
+        #{upper,jdbcType=DECIMAL},
+      </if>
+      <if test="lower != null">
+        #{lower,jdbcType=DECIMAL},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=INTEGER},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifyTime != null">
+        #{lastModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="level != null">
+        #{level,jdbcType=VARCHAR},
+      </if>
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtScoreSheet">
+    <!--@mbg.generated-->
+    update pt_score_sheet
+    <set>
+      <if test="score != null">
+        score = #{score,jdbcType=INTEGER},
+      </if>
+      <if test="createdTime != null">
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifyTime != null">
+        last_modify_time = #{lastModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="level != null">
+        `level` = #{level,jdbcType=VARCHAR},
+      </if>
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+    </set>
+    where sub_id = #{subId,jdbcType=BIGINT}
+      and gender = #{gender,jdbcType=CHAR}
+      and grade = #{grade,jdbcType=INTEGER}
+      and `upper` = #{upper,jdbcType=DECIMAL}
+      and `lower` = #{lower,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtScoreSheet">
+    <!--@mbg.generated-->
+    update pt_score_sheet
+    set score = #{score,jdbcType=INTEGER},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      last_modify_time = #{lastModifyTime,jdbcType=TIMESTAMP},
+      `level` = #{level,jdbcType=VARCHAR},
+      id = #{id,jdbcType=BIGINT}
+    where sub_id = #{subId,jdbcType=BIGINT}
+      and gender = #{gender,jdbcType=CHAR}
+      and grade = #{grade,jdbcType=INTEGER}
+      and `upper` = #{upper,jdbcType=DECIMAL}
+      and `lower` = #{lower,jdbcType=DECIMAL}
+  </update>
+</mapper>

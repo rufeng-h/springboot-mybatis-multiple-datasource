@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.mjms.HrIndustryMapper">
+  <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.mjms.HrIndustry">
+    <!--@mbg.generated-->
+    <!--@Table hr_industry-->
+    <id column="ind_id" jdbcType="CHAR" property="indId" />
+    <result column="ind_name" jdbcType="VARCHAR" property="indName" />
+    <result column="ind_pid" jdbcType="CHAR" property="indPid" />
+    <result column="ind_level" jdbcType="TINYINT" property="indLevel" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ind_id, ind_name, ind_pid, ind_level
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from hr_industry
+    where ind_id = #{indId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from hr_industry
+    where ind_id = #{indId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrIndustry">
+    <!--@mbg.generated-->
+    insert into hr_industry (ind_id, ind_name, ind_pid, 
+      ind_level)
+    values (#{indId,jdbcType=CHAR}, #{indName,jdbcType=VARCHAR}, #{indPid,jdbcType=CHAR}, 
+      #{indLevel,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrIndustry">
+    <!--@mbg.generated-->
+    insert into hr_industry
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="indId != null">
+        ind_id,
+      </if>
+      <if test="indName != null">
+        ind_name,
+      </if>
+      <if test="indPid != null">
+        ind_pid,
+      </if>
+      <if test="indLevel != null">
+        ind_level,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="indId != null">
+        #{indId,jdbcType=CHAR},
+      </if>
+      <if test="indName != null">
+        #{indName,jdbcType=VARCHAR},
+      </if>
+      <if test="indPid != null">
+        #{indPid,jdbcType=CHAR},
+      </if>
+      <if test="indLevel != null">
+        #{indLevel,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrIndustry">
+    <!--@mbg.generated-->
+    update hr_industry
+    <set>
+      <if test="indName != null">
+        ind_name = #{indName,jdbcType=VARCHAR},
+      </if>
+      <if test="indPid != null">
+        ind_pid = #{indPid,jdbcType=CHAR},
+      </if>
+      <if test="indLevel != null">
+        ind_level = #{indLevel,jdbcType=TINYINT},
+      </if>
+    </set>
+    where ind_id = #{indId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrIndustry">
+    <!--@mbg.generated-->
+    update hr_industry
+    set ind_name = #{indName,jdbcType=VARCHAR},
+      ind_pid = #{indPid,jdbcType=CHAR},
+      ind_level = #{indLevel,jdbcType=TINYINT}
+    where ind_id = #{indId,jdbcType=CHAR}
+  </update>
+</mapper>

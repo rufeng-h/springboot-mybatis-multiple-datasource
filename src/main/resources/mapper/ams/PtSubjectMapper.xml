@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.ams.PtSubjectMapper">
+  <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.ams.PtSubject">
+    <!--@mbg.generated-->
+    <!--@Table pt_subject-->
+    <id column="sub_id" jdbcType="BIGINT" property="subId" />
+    <result column="sub_name" jdbcType="VARCHAR" property="subName" />
+    <result column="sub_desp" jdbcType="VARCHAR" property="subDesp" />
+    <result column="sub_created" jdbcType="TIMESTAMP" property="subCreated" />
+    <result column="sub_modified" jdbcType="TIMESTAMP" property="subModified" />
+    <result column="comp_id" jdbcType="BIGINT" property="compId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    sub_id, sub_name, sub_desp, sub_created, sub_modified, comp_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from pt_subject
+    where sub_id = #{subId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from pt_subject
+    where sub_id = #{subId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="sub_id" keyProperty="subId" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtSubject" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pt_subject (sub_name, sub_desp, sub_created, 
+      sub_modified, comp_id)
+    values (#{subName,jdbcType=VARCHAR}, #{subDesp,jdbcType=VARCHAR}, #{subCreated,jdbcType=TIMESTAMP}, 
+      #{subModified,jdbcType=TIMESTAMP}, #{compId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="sub_id" keyProperty="subId" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtSubject" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pt_subject
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="subName != null">
+        sub_name,
+      </if>
+      <if test="subDesp != null">
+        sub_desp,
+      </if>
+      <if test="subCreated != null">
+        sub_created,
+      </if>
+      <if test="subModified != null">
+        sub_modified,
+      </if>
+      <if test="compId != null">
+        comp_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="subName != null">
+        #{subName,jdbcType=VARCHAR},
+      </if>
+      <if test="subDesp != null">
+        #{subDesp,jdbcType=VARCHAR},
+      </if>
+      <if test="subCreated != null">
+        #{subCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subModified != null">
+        #{subModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtSubject">
+    <!--@mbg.generated-->
+    update pt_subject
+    <set>
+      <if test="subName != null">
+        sub_name = #{subName,jdbcType=VARCHAR},
+      </if>
+      <if test="subDesp != null">
+        sub_desp = #{subDesp,jdbcType=VARCHAR},
+      </if>
+      <if test="subCreated != null">
+        sub_created = #{subCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subModified != null">
+        sub_modified = #{subModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="compId != null">
+        comp_id = #{compId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where sub_id = #{subId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtSubject">
+    <!--@mbg.generated-->
+    update pt_subject
+    set sub_name = #{subName,jdbcType=VARCHAR},
+      sub_desp = #{subDesp,jdbcType=VARCHAR},
+      sub_created = #{subCreated,jdbcType=TIMESTAMP},
+      sub_modified = #{subModified,jdbcType=TIMESTAMP},
+      comp_id = #{compId,jdbcType=BIGINT}
+    where sub_id = #{subId,jdbcType=BIGINT}
+  </update>
+</mapper>

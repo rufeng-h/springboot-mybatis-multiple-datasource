@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.mjms.HrAreaMapper">
+  <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.mjms.HrArea">
+    <!--@mbg.generated-->
+    <!--@Table hr_area-->
+    <id column="area_id" jdbcType="BIGINT" property="areaId" />
+    <result column="area_name" jdbcType="VARCHAR" property="areaName" />
+    <result column="area_pid" jdbcType="BIGINT" property="areaPid" />
+    <result column="area_level" jdbcType="SMALLINT" property="areaLevel" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    area_id, area_name, area_pid, area_level
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from hr_area
+    where area_id = #{areaId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from hr_area
+    where area_id = #{areaId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrArea">
+    <!--@mbg.generated-->
+    insert into hr_area (area_id, area_name, area_pid, 
+      area_level)
+    values (#{areaId,jdbcType=BIGINT}, #{areaName,jdbcType=VARCHAR}, #{areaPid,jdbcType=BIGINT}, 
+      #{areaLevel,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrArea">
+    <!--@mbg.generated-->
+    insert into hr_area
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="areaId != null">
+        area_id,
+      </if>
+      <if test="areaName != null">
+        area_name,
+      </if>
+      <if test="areaPid != null">
+        area_pid,
+      </if>
+      <if test="areaLevel != null">
+        area_level,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="areaId != null">
+        #{areaId,jdbcType=BIGINT},
+      </if>
+      <if test="areaName != null">
+        #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaPid != null">
+        #{areaPid,jdbcType=BIGINT},
+      </if>
+      <if test="areaLevel != null">
+        #{areaLevel,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrArea">
+    <!--@mbg.generated-->
+    update hr_area
+    <set>
+      <if test="areaName != null">
+        area_name = #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaPid != null">
+        area_pid = #{areaPid,jdbcType=BIGINT},
+      </if>
+      <if test="areaLevel != null">
+        area_level = #{areaLevel,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where area_id = #{areaId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrArea">
+    <!--@mbg.generated-->
+    update hr_area
+    set area_name = #{areaName,jdbcType=VARCHAR},
+      area_pid = #{areaPid,jdbcType=BIGINT},
+      area_level = #{areaLevel,jdbcType=SMALLINT}
+    where area_id = #{areaId,jdbcType=BIGINT}
+  </update>
+</mapper>

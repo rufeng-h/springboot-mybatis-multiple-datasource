@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.ams.PtClassMeasurementMapper">
+  <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.ams.PtClassMeasurement">
+    <!--@mbg.generated-->
+    <!--@Table pt_class_measurement-->
+    <id column="cms_id" jdbcType="BIGINT" property="cmsId" />
+    <result column="ms_id" jdbcType="BIGINT" property="msId" />
+    <result column="cls_code" jdbcType="VARCHAR" property="clsCode" />
+    <result column="cms_created" jdbcType="TIMESTAMP" property="cmsCreated" />
+    <result column="cms_modified" jdbcType="TIMESTAMP" property="cmsModified" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    cms_id, ms_id, cls_code, cms_created, cms_modified
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from pt_class_measurement
+    where cms_id = #{cmsId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from pt_class_measurement
+    where cms_id = #{cmsId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="cms_id" keyProperty="cmsId" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtClassMeasurement" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pt_class_measurement (ms_id, cls_code, cms_created, 
+      cms_modified)
+    values (#{msId,jdbcType=BIGINT}, #{clsCode,jdbcType=VARCHAR}, #{cmsCreated,jdbcType=TIMESTAMP}, 
+      #{cmsModified,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="cms_id" keyProperty="cmsId" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtClassMeasurement" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pt_class_measurement
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="msId != null">
+        ms_id,
+      </if>
+      <if test="clsCode != null">
+        cls_code,
+      </if>
+      <if test="cmsCreated != null">
+        cms_created,
+      </if>
+      <if test="cmsModified != null">
+        cms_modified,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="msId != null">
+        #{msId,jdbcType=BIGINT},
+      </if>
+      <if test="clsCode != null">
+        #{clsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cmsCreated != null">
+        #{cmsCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cmsModified != null">
+        #{cmsModified,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtClassMeasurement">
+    <!--@mbg.generated-->
+    update pt_class_measurement
+    <set>
+      <if test="msId != null">
+        ms_id = #{msId,jdbcType=BIGINT},
+      </if>
+      <if test="clsCode != null">
+        cls_code = #{clsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cmsCreated != null">
+        cms_created = #{cmsCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cmsModified != null">
+        cms_modified = #{cmsModified,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where cms_id = #{cmsId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtClassMeasurement">
+    <!--@mbg.generated-->
+    update pt_class_measurement
+    set ms_id = #{msId,jdbcType=BIGINT},
+      cls_code = #{clsCode,jdbcType=VARCHAR},
+      cms_created = #{cmsCreated,jdbcType=TIMESTAMP},
+      cms_modified = #{cmsModified,jdbcType=TIMESTAMP}
+    where cms_id = #{cmsId,jdbcType=BIGINT}
+  </update>
+</mapper>

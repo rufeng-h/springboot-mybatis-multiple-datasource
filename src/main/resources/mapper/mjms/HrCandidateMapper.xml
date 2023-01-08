@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.mjms.HrCandidateMapper">
+  <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.mjms.HrCandidate">
+    <!--@mbg.generated-->
+    <!--@Table hr_candidate-->
+    <id column="cand_id" jdbcType="BIGINT" property="candId" />
+    <result column="cand_name" jdbcType="VARCHAR" property="candName" />
+    <result column="cand_hometown" jdbcType="CHAR" property="candHometown" />
+    <result column="cand_email" jdbcType="VARCHAR" property="candEmail" />
+    <result column="cand_phone" jdbcType="VARCHAR" property="candPhone" />
+    <result column="cand_gender" jdbcType="CHAR" property="candGender" />
+    <result column="cand_pwd" jdbcType="VARCHAR" property="candPwd" />
+    <result column="cand_created" jdbcType="TIMESTAMP" property="candCreated" />
+    <result column="cand_last_login" jdbcType="TIMESTAMP" property="candLastLogin" />
+    <result column="cand_status" jdbcType="CHAR" property="candStatus" />
+    <result column="cand_avatar" jdbcType="VARCHAR" property="candAvatar" />
+    <result column="cand_id_card" jdbcType="VARCHAR" property="candIdCard" />
+    <result column="cand_living" jdbcType="CHAR" property="candLiving" />
+    <result column="cand_vision_left" jdbcType="REAL" property="candVisionLeft" />
+    <result column="cand_vision_right" jdbcType="REAL" property="candVisionRight" />
+    <result column="cand_politic" jdbcType="CHAR" property="candPolitic" />
+    <result column="cand_nation" jdbcType="CHAR" property="candNation" />
+    <result column="cand_height" jdbcType="INTEGER" property="candHeight" />
+    <result column="cand_heavy" jdbcType="INTEGER" property="candHeavy" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    cand_id, cand_name, cand_hometown, cand_email, cand_phone, cand_gender, cand_pwd, 
+    cand_created, cand_last_login, cand_status, cand_avatar, cand_id_card, cand_living, 
+    cand_vision_left, cand_vision_right, cand_politic, cand_nation, cand_height, cand_heavy
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from hr_candidate
+    where cand_id = #{candId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from hr_candidate
+    where cand_id = #{candId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="cand_id" keyProperty="candId" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrCandidate" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into hr_candidate (cand_name, cand_hometown, cand_email, 
+      cand_phone, cand_gender, cand_pwd, 
+      cand_created, cand_last_login, cand_status, 
+      cand_avatar, cand_id_card, cand_living, 
+      cand_vision_left, cand_vision_right, cand_politic, 
+      cand_nation, cand_height, cand_heavy
+      )
+    values (#{candName,jdbcType=VARCHAR}, #{candHometown,jdbcType=CHAR}, #{candEmail,jdbcType=VARCHAR}, 
+      #{candPhone,jdbcType=VARCHAR}, #{candGender,jdbcType=CHAR}, #{candPwd,jdbcType=VARCHAR}, 
+      #{candCreated,jdbcType=TIMESTAMP}, #{candLastLogin,jdbcType=TIMESTAMP}, #{candStatus,jdbcType=CHAR}, 
+      #{candAvatar,jdbcType=VARCHAR}, #{candIdCard,jdbcType=VARCHAR}, #{candLiving,jdbcType=CHAR}, 
+      #{candVisionLeft,jdbcType=REAL}, #{candVisionRight,jdbcType=REAL}, #{candPolitic,jdbcType=CHAR}, 
+      #{candNation,jdbcType=CHAR}, #{candHeight,jdbcType=INTEGER}, #{candHeavy,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="cand_id" keyProperty="candId" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrCandidate" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into hr_candidate
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="candName != null">
+        cand_name,
+      </if>
+      <if test="candHometown != null">
+        cand_hometown,
+      </if>
+      <if test="candEmail != null">
+        cand_email,
+      </if>
+      <if test="candPhone != null">
+        cand_phone,
+      </if>
+      <if test="candGender != null">
+        cand_gender,
+      </if>
+      <if test="candPwd != null">
+        cand_pwd,
+      </if>
+      <if test="candCreated != null">
+        cand_created,
+      </if>
+      <if test="candLastLogin != null">
+        cand_last_login,
+      </if>
+      <if test="candStatus != null">
+        cand_status,
+      </if>
+      <if test="candAvatar != null">
+        cand_avatar,
+      </if>
+      <if test="candIdCard != null">
+        cand_id_card,
+      </if>
+      <if test="candLiving != null">
+        cand_living,
+      </if>
+      <if test="candVisionLeft != null">
+        cand_vision_left,
+      </if>
+      <if test="candVisionRight != null">
+        cand_vision_right,
+      </if>
+      <if test="candPolitic != null">
+        cand_politic,
+      </if>
+      <if test="candNation != null">
+        cand_nation,
+      </if>
+      <if test="candHeight != null">
+        cand_height,
+      </if>
+      <if test="candHeavy != null">
+        cand_heavy,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="candName != null">
+        #{candName,jdbcType=VARCHAR},
+      </if>
+      <if test="candHometown != null">
+        #{candHometown,jdbcType=CHAR},
+      </if>
+      <if test="candEmail != null">
+        #{candEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="candPhone != null">
+        #{candPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="candGender != null">
+        #{candGender,jdbcType=CHAR},
+      </if>
+      <if test="candPwd != null">
+        #{candPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="candCreated != null">
+        #{candCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="candLastLogin != null">
+        #{candLastLogin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="candStatus != null">
+        #{candStatus,jdbcType=CHAR},
+      </if>
+      <if test="candAvatar != null">
+        #{candAvatar,jdbcType=VARCHAR},
+      </if>
+      <if test="candIdCard != null">
+        #{candIdCard,jdbcType=VARCHAR},
+      </if>
+      <if test="candLiving != null">
+        #{candLiving,jdbcType=CHAR},
+      </if>
+      <if test="candVisionLeft != null">
+        #{candVisionLeft,jdbcType=REAL},
+      </if>
+      <if test="candVisionRight != null">
+        #{candVisionRight,jdbcType=REAL},
+      </if>
+      <if test="candPolitic != null">
+        #{candPolitic,jdbcType=CHAR},
+      </if>
+      <if test="candNation != null">
+        #{candNation,jdbcType=CHAR},
+      </if>
+      <if test="candHeight != null">
+        #{candHeight,jdbcType=INTEGER},
+      </if>
+      <if test="candHeavy != null">
+        #{candHeavy,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrCandidate">
+    <!--@mbg.generated-->
+    update hr_candidate
+    <set>
+      <if test="candName != null">
+        cand_name = #{candName,jdbcType=VARCHAR},
+      </if>
+      <if test="candHometown != null">
+        cand_hometown = #{candHometown,jdbcType=CHAR},
+      </if>
+      <if test="candEmail != null">
+        cand_email = #{candEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="candPhone != null">
+        cand_phone = #{candPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="candGender != null">
+        cand_gender = #{candGender,jdbcType=CHAR},
+      </if>
+      <if test="candPwd != null">
+        cand_pwd = #{candPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="candCreated != null">
+        cand_created = #{candCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="candLastLogin != null">
+        cand_last_login = #{candLastLogin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="candStatus != null">
+        cand_status = #{candStatus,jdbcType=CHAR},
+      </if>
+      <if test="candAvatar != null">
+        cand_avatar = #{candAvatar,jdbcType=VARCHAR},
+      </if>
+      <if test="candIdCard != null">
+        cand_id_card = #{candIdCard,jdbcType=VARCHAR},
+      </if>
+      <if test="candLiving != null">
+        cand_living = #{candLiving,jdbcType=CHAR},
+      </if>
+      <if test="candVisionLeft != null">
+        cand_vision_left = #{candVisionLeft,jdbcType=REAL},
+      </if>
+      <if test="candVisionRight != null">
+        cand_vision_right = #{candVisionRight,jdbcType=REAL},
+      </if>
+      <if test="candPolitic != null">
+        cand_politic = #{candPolitic,jdbcType=CHAR},
+      </if>
+      <if test="candNation != null">
+        cand_nation = #{candNation,jdbcType=CHAR},
+      </if>
+      <if test="candHeight != null">
+        cand_height = #{candHeight,jdbcType=INTEGER},
+      </if>
+      <if test="candHeavy != null">
+        cand_heavy = #{candHeavy,jdbcType=INTEGER},
+      </if>
+    </set>
+    where cand_id = #{candId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrCandidate">
+    <!--@mbg.generated-->
+    update hr_candidate
+    set cand_name = #{candName,jdbcType=VARCHAR},
+      cand_hometown = #{candHometown,jdbcType=CHAR},
+      cand_email = #{candEmail,jdbcType=VARCHAR},
+      cand_phone = #{candPhone,jdbcType=VARCHAR},
+      cand_gender = #{candGender,jdbcType=CHAR},
+      cand_pwd = #{candPwd,jdbcType=VARCHAR},
+      cand_created = #{candCreated,jdbcType=TIMESTAMP},
+      cand_last_login = #{candLastLogin,jdbcType=TIMESTAMP},
+      cand_status = #{candStatus,jdbcType=CHAR},
+      cand_avatar = #{candAvatar,jdbcType=VARCHAR},
+      cand_id_card = #{candIdCard,jdbcType=VARCHAR},
+      cand_living = #{candLiving,jdbcType=CHAR},
+      cand_vision_left = #{candVisionLeft,jdbcType=REAL},
+      cand_vision_right = #{candVisionRight,jdbcType=REAL},
+      cand_politic = #{candPolitic,jdbcType=CHAR},
+      cand_nation = #{candNation,jdbcType=CHAR},
+      cand_height = #{candHeight,jdbcType=INTEGER},
+      cand_heavy = #{candHeavy,jdbcType=INTEGER}
+    where cand_id = #{candId,jdbcType=BIGINT}
+  </update>
+</mapper>

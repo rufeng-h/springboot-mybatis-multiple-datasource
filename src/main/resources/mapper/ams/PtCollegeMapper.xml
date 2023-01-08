@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.ams.PtCollegeMapper">
+  <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.ams.PtCollege">
+    <!--@mbg.generated-->
+    <!--@Table pt_college-->
+    <id column="clg_code" jdbcType="VARCHAR" property="clgCode" />
+    <result column="clg_id" jdbcType="BIGINT" property="clgId" />
+    <result column="clg_name" jdbcType="VARCHAR" property="clgName" />
+    <result column="clg_office" jdbcType="VARCHAR" property="clgOffice" />
+    <result column="clg_tel" jdbcType="VARCHAR" property="clgTel" />
+    <result column="clg_home" jdbcType="VARCHAR" property="clgHome" />
+    <result column="clg_created" jdbcType="TIMESTAMP" property="clgCreated" />
+    <result column="clg_modified" jdbcType="TIMESTAMP" property="clgModified" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    clg_code, clg_id, clg_name, clg_office, clg_tel, clg_home, clg_created, clg_modified
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from pt_college
+    where clg_code = #{clgCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from pt_college
+    where clg_code = #{clgCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtCollege">
+    <!--@mbg.generated-->
+    insert into pt_college (clg_code, clg_id, clg_name, 
+      clg_office, clg_tel, clg_home, 
+      clg_created, clg_modified)
+    values (#{clgCode,jdbcType=VARCHAR}, #{clgId,jdbcType=BIGINT}, #{clgName,jdbcType=VARCHAR}, 
+      #{clgOffice,jdbcType=VARCHAR}, #{clgTel,jdbcType=VARCHAR}, #{clgHome,jdbcType=VARCHAR}, 
+      #{clgCreated,jdbcType=TIMESTAMP}, #{clgModified,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtCollege">
+    <!--@mbg.generated-->
+    insert into pt_college
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="clgCode != null">
+        clg_code,
+      </if>
+      <if test="clgId != null">
+        clg_id,
+      </if>
+      <if test="clgName != null">
+        clg_name,
+      </if>
+      <if test="clgOffice != null">
+        clg_office,
+      </if>
+      <if test="clgTel != null">
+        clg_tel,
+      </if>
+      <if test="clgHome != null">
+        clg_home,
+      </if>
+      <if test="clgCreated != null">
+        clg_created,
+      </if>
+      <if test="clgModified != null">
+        clg_modified,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="clgCode != null">
+        #{clgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="clgId != null">
+        #{clgId,jdbcType=BIGINT},
+      </if>
+      <if test="clgName != null">
+        #{clgName,jdbcType=VARCHAR},
+      </if>
+      <if test="clgOffice != null">
+        #{clgOffice,jdbcType=VARCHAR},
+      </if>
+      <if test="clgTel != null">
+        #{clgTel,jdbcType=VARCHAR},
+      </if>
+      <if test="clgHome != null">
+        #{clgHome,jdbcType=VARCHAR},
+      </if>
+      <if test="clgCreated != null">
+        #{clgCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clgModified != null">
+        #{clgModified,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtCollege">
+    <!--@mbg.generated-->
+    update pt_college
+    <set>
+      <if test="clgId != null">
+        clg_id = #{clgId,jdbcType=BIGINT},
+      </if>
+      <if test="clgName != null">
+        clg_name = #{clgName,jdbcType=VARCHAR},
+      </if>
+      <if test="clgOffice != null">
+        clg_office = #{clgOffice,jdbcType=VARCHAR},
+      </if>
+      <if test="clgTel != null">
+        clg_tel = #{clgTel,jdbcType=VARCHAR},
+      </if>
+      <if test="clgHome != null">
+        clg_home = #{clgHome,jdbcType=VARCHAR},
+      </if>
+      <if test="clgCreated != null">
+        clg_created = #{clgCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clgModified != null">
+        clg_modified = #{clgModified,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where clg_code = #{clgCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtCollege">
+    <!--@mbg.generated-->
+    update pt_college
+    set clg_id = #{clgId,jdbcType=BIGINT},
+      clg_name = #{clgName,jdbcType=VARCHAR},
+      clg_office = #{clgOffice,jdbcType=VARCHAR},
+      clg_tel = #{clgTel,jdbcType=VARCHAR},
+      clg_home = #{clgHome,jdbcType=VARCHAR},
+      clg_created = #{clgCreated,jdbcType=TIMESTAMP},
+      clg_modified = #{clgModified,jdbcType=TIMESTAMP}
+    where clg_code = #{clgCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

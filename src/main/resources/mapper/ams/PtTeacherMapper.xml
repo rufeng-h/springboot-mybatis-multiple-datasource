@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.ams.PtTeacherMapper">
+  <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.ams.PtTeacher">
+    <!--@mbg.generated-->
+    <!--@Table pt_teacher-->
+    <id column="tea_id" jdbcType="VARCHAR" property="teaId" />
+    <result column="tea_name" jdbcType="VARCHAR" property="teaName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="tea_desp" jdbcType="VARCHAR" property="teaDesp" />
+    <result column="tea_created" jdbcType="TIMESTAMP" property="teaCreated" />
+    <result column="tea_modified" jdbcType="TIMESTAMP" property="teaModified" />
+    <result column="tea_last_login" jdbcType="TIMESTAMP" property="teaLastLogin" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="tid" jdbcType="BIGINT" property="tid" />
+    <result column="clg_code" jdbcType="VARCHAR" property="clgCode" />
+    <result column="tea_gender" jdbcType="OTHER" property="teaGender" />
+    <result column="tea_birth" jdbcType="DATE" property="teaBirth" />
+    <result column="principal" jdbcType="BOOLEAN" property="principal" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    tea_id, tea_name, `password`, avatar, email, tea_desp, tea_created, tea_modified, 
+    tea_last_login, phone, tid, clg_code, tea_gender, tea_birth, principal
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from pt_teacher
+    where tea_id = #{teaId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from pt_teacher
+    where tea_id = #{teaId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtTeacher">
+    <!--@mbg.generated-->
+    insert into pt_teacher (tea_id, tea_name, `password`, 
+      avatar, email, tea_desp, 
+      tea_created, tea_modified, tea_last_login, 
+      phone, tid, clg_code, 
+      tea_gender, tea_birth, principal
+      )
+    values (#{teaId,jdbcType=VARCHAR}, #{teaName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{avatar,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{teaDesp,jdbcType=VARCHAR}, 
+      #{teaCreated,jdbcType=TIMESTAMP}, #{teaModified,jdbcType=TIMESTAMP}, #{teaLastLogin,jdbcType=TIMESTAMP}, 
+      #{phone,jdbcType=VARCHAR}, #{tid,jdbcType=BIGINT}, #{clgCode,jdbcType=VARCHAR}, 
+      #{teaGender,jdbcType=OTHER}, #{teaBirth,jdbcType=DATE}, #{principal,jdbcType=BOOLEAN}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtTeacher">
+    <!--@mbg.generated-->
+    insert into pt_teacher
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="teaId != null">
+        tea_id,
+      </if>
+      <if test="teaName != null">
+        tea_name,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="avatar != null">
+        avatar,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="teaDesp != null">
+        tea_desp,
+      </if>
+      <if test="teaCreated != null">
+        tea_created,
+      </if>
+      <if test="teaModified != null">
+        tea_modified,
+      </if>
+      <if test="teaLastLogin != null">
+        tea_last_login,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="tid != null">
+        tid,
+      </if>
+      <if test="clgCode != null">
+        clg_code,
+      </if>
+      <if test="teaGender != null">
+        tea_gender,
+      </if>
+      <if test="teaBirth != null">
+        tea_birth,
+      </if>
+      <if test="principal != null">
+        principal,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="teaId != null">
+        #{teaId,jdbcType=VARCHAR},
+      </if>
+      <if test="teaName != null">
+        #{teaName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="teaDesp != null">
+        #{teaDesp,jdbcType=VARCHAR},
+      </if>
+      <if test="teaCreated != null">
+        #{teaCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="teaModified != null">
+        #{teaModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="teaLastLogin != null">
+        #{teaLastLogin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="tid != null">
+        #{tid,jdbcType=BIGINT},
+      </if>
+      <if test="clgCode != null">
+        #{clgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="teaGender != null">
+        #{teaGender,jdbcType=OTHER},
+      </if>
+      <if test="teaBirth != null">
+        #{teaBirth,jdbcType=DATE},
+      </if>
+      <if test="principal != null">
+        #{principal,jdbcType=BOOLEAN},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtTeacher">
+    <!--@mbg.generated-->
+    update pt_teacher
+    <set>
+      <if test="teaName != null">
+        tea_name = #{teaName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="teaDesp != null">
+        tea_desp = #{teaDesp,jdbcType=VARCHAR},
+      </if>
+      <if test="teaCreated != null">
+        tea_created = #{teaCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="teaModified != null">
+        tea_modified = #{teaModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="teaLastLogin != null">
+        tea_last_login = #{teaLastLogin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="tid != null">
+        tid = #{tid,jdbcType=BIGINT},
+      </if>
+      <if test="clgCode != null">
+        clg_code = #{clgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="teaGender != null">
+        tea_gender = #{teaGender,jdbcType=OTHER},
+      </if>
+      <if test="teaBirth != null">
+        tea_birth = #{teaBirth,jdbcType=DATE},
+      </if>
+      <if test="principal != null">
+        principal = #{principal,jdbcType=BOOLEAN},
+      </if>
+    </set>
+    where tea_id = #{teaId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtTeacher">
+    <!--@mbg.generated-->
+    update pt_teacher
+    set tea_name = #{teaName,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      avatar = #{avatar,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      tea_desp = #{teaDesp,jdbcType=VARCHAR},
+      tea_created = #{teaCreated,jdbcType=TIMESTAMP},
+      tea_modified = #{teaModified,jdbcType=TIMESTAMP},
+      tea_last_login = #{teaLastLogin,jdbcType=TIMESTAMP},
+      phone = #{phone,jdbcType=VARCHAR},
+      tid = #{tid,jdbcType=BIGINT},
+      clg_code = #{clgCode,jdbcType=VARCHAR},
+      tea_gender = #{teaGender,jdbcType=OTHER},
+      tea_birth = #{teaBirth,jdbcType=DATE},
+      principal = #{principal,jdbcType=BOOLEAN}
+    where tea_id = #{teaId,jdbcType=VARCHAR}
+  </update>
+</mapper>

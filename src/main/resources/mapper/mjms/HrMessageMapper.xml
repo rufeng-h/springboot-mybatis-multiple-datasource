@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.mjms.HrMessageMapper">
+  <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.mjms.HrMessage">
+    <!--@mbg.generated-->
+    <!--@Table hr_message-->
+    <id column="msg_id" jdbcType="BIGINT" property="msgId" />
+    <result column="msg_content" jdbcType="LONGVARCHAR" property="msgContent" />
+    <result column="msg_type" jdbcType="CHAR" property="msgType" />
+    <result column="msg_from" jdbcType="BIGINT" property="msgFrom" />
+    <result column="msg_to" jdbcType="BIGINT" property="msgTo" />
+    <result column="msg_status" jdbcType="CHAR" property="msgStatus" />
+    <result column="msg_created" jdbcType="TIMESTAMP" property="msgCreated" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    msg_id, msg_content, msg_type, msg_from, msg_to, msg_status, msg_created
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from hr_message
+    where msg_id = #{msgId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from hr_message
+    where msg_id = #{msgId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="msg_id" keyProperty="msgId" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrMessage" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into hr_message (msg_content, msg_type, msg_from, 
+      msg_to, msg_status, msg_created
+      )
+    values (#{msgContent,jdbcType=LONGVARCHAR}, #{msgType,jdbcType=CHAR}, #{msgFrom,jdbcType=BIGINT}, 
+      #{msgTo,jdbcType=BIGINT}, #{msgStatus,jdbcType=CHAR}, #{msgCreated,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="msg_id" keyProperty="msgId" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrMessage" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into hr_message
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="msgContent != null">
+        msg_content,
+      </if>
+      <if test="msgType != null">
+        msg_type,
+      </if>
+      <if test="msgFrom != null">
+        msg_from,
+      </if>
+      <if test="msgTo != null">
+        msg_to,
+      </if>
+      <if test="msgStatus != null">
+        msg_status,
+      </if>
+      <if test="msgCreated != null">
+        msg_created,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="msgContent != null">
+        #{msgContent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="msgType != null">
+        #{msgType,jdbcType=CHAR},
+      </if>
+      <if test="msgFrom != null">
+        #{msgFrom,jdbcType=BIGINT},
+      </if>
+      <if test="msgTo != null">
+        #{msgTo,jdbcType=BIGINT},
+      </if>
+      <if test="msgStatus != null">
+        #{msgStatus,jdbcType=CHAR},
+      </if>
+      <if test="msgCreated != null">
+        #{msgCreated,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrMessage">
+    <!--@mbg.generated-->
+    update hr_message
+    <set>
+      <if test="msgContent != null">
+        msg_content = #{msgContent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="msgType != null">
+        msg_type = #{msgType,jdbcType=CHAR},
+      </if>
+      <if test="msgFrom != null">
+        msg_from = #{msgFrom,jdbcType=BIGINT},
+      </if>
+      <if test="msgTo != null">
+        msg_to = #{msgTo,jdbcType=BIGINT},
+      </if>
+      <if test="msgStatus != null">
+        msg_status = #{msgStatus,jdbcType=CHAR},
+      </if>
+      <if test="msgCreated != null">
+        msg_created = #{msgCreated,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where msg_id = #{msgId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrMessage">
+    <!--@mbg.generated-->
+    update hr_message
+    set msg_content = #{msgContent,jdbcType=LONGVARCHAR},
+      msg_type = #{msgType,jdbcType=CHAR},
+      msg_from = #{msgFrom,jdbcType=BIGINT},
+      msg_to = #{msgTo,jdbcType=BIGINT},
+      msg_status = #{msgStatus,jdbcType=CHAR},
+      msg_created = #{msgCreated,jdbcType=TIMESTAMP}
+    where msg_id = #{msgId,jdbcType=BIGINT}
+  </update>
+</mapper>

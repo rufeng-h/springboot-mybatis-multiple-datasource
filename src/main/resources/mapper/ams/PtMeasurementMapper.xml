@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.ams.PtMeasurementMapper">
+  <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.ams.PtMeasurement">
+    <!--@mbg.generated-->
+    <!--@Table pt_measurement-->
+    <id column="ms_id" jdbcType="BIGINT" property="msId" />
+    <result column="ms_name" jdbcType="VARCHAR" property="msName" />
+    <result column="ms_desp" jdbcType="VARCHAR" property="msDesp" />
+    <result column="ms_created" jdbcType="TIMESTAMP" property="msCreated" />
+    <result column="ms_modified" jdbcType="TIMESTAMP" property="msModified" />
+    <result column="grp_id" jdbcType="BIGINT" property="grpId" />
+    <result column="ms_created_admin" jdbcType="VARCHAR" property="msCreatedAdmin" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ms_id, ms_name, ms_desp, ms_created, ms_modified, grp_id, ms_created_admin
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from pt_measurement
+    where ms_id = #{msId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from pt_measurement
+    where ms_id = #{msId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="ms_id" keyProperty="msId" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtMeasurement" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pt_measurement (ms_name, ms_desp, ms_created, 
+      ms_modified, grp_id, ms_created_admin
+      )
+    values (#{msName,jdbcType=VARCHAR}, #{msDesp,jdbcType=VARCHAR}, #{msCreated,jdbcType=TIMESTAMP}, 
+      #{msModified,jdbcType=TIMESTAMP}, #{grpId,jdbcType=BIGINT}, #{msCreatedAdmin,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="ms_id" keyProperty="msId" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtMeasurement" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pt_measurement
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="msName != null">
+        ms_name,
+      </if>
+      <if test="msDesp != null">
+        ms_desp,
+      </if>
+      <if test="msCreated != null">
+        ms_created,
+      </if>
+      <if test="msModified != null">
+        ms_modified,
+      </if>
+      <if test="grpId != null">
+        grp_id,
+      </if>
+      <if test="msCreatedAdmin != null">
+        ms_created_admin,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="msName != null">
+        #{msName,jdbcType=VARCHAR},
+      </if>
+      <if test="msDesp != null">
+        #{msDesp,jdbcType=VARCHAR},
+      </if>
+      <if test="msCreated != null">
+        #{msCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="msModified != null">
+        #{msModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="grpId != null">
+        #{grpId,jdbcType=BIGINT},
+      </if>
+      <if test="msCreatedAdmin != null">
+        #{msCreatedAdmin,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtMeasurement">
+    <!--@mbg.generated-->
+    update pt_measurement
+    <set>
+      <if test="msName != null">
+        ms_name = #{msName,jdbcType=VARCHAR},
+      </if>
+      <if test="msDesp != null">
+        ms_desp = #{msDesp,jdbcType=VARCHAR},
+      </if>
+      <if test="msCreated != null">
+        ms_created = #{msCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="msModified != null">
+        ms_modified = #{msModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="grpId != null">
+        grp_id = #{grpId,jdbcType=BIGINT},
+      </if>
+      <if test="msCreatedAdmin != null">
+        ms_created_admin = #{msCreatedAdmin,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ms_id = #{msId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtMeasurement">
+    <!--@mbg.generated-->
+    update pt_measurement
+    set ms_name = #{msName,jdbcType=VARCHAR},
+      ms_desp = #{msDesp,jdbcType=VARCHAR},
+      ms_created = #{msCreated,jdbcType=TIMESTAMP},
+      ms_modified = #{msModified,jdbcType=TIMESTAMP},
+      grp_id = #{grpId,jdbcType=BIGINT},
+      ms_created_admin = #{msCreatedAdmin,jdbcType=VARCHAR}
+    where ms_id = #{msId,jdbcType=BIGINT}
+  </update>
+</mapper>

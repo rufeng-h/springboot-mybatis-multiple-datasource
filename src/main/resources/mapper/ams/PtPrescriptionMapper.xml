@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.ams.PtPrescriptionMapper">
+  <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.ams.PtPrescription">
+    <!--@mbg.generated-->
+    <!--@Table pt_prescription-->
+    <result column="prs_id" jdbcType="BIGINT" property="prsId" />
+    <result column="comp_id" jdbcType="BIGINT" property="compId" />
+    <result column="prs_level" jdbcType="VARCHAR" property="prsLevel" />
+    <result column="prs_text" jdbcType="LONGVARCHAR" property="prsText" />
+    <result column="prs_created" jdbcType="TIMESTAMP" property="prsCreated" />
+    <result column="prs_modified" jdbcType="TIMESTAMP" property="prsModified" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    prs_id, comp_id, prs_level, prs_text, prs_created, prs_modified
+  </sql>
+  <insert id="insert" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtPrescription">
+    <!--@mbg.generated-->
+    insert into pt_prescription (prs_id, comp_id, prs_level, 
+      prs_text, prs_created, prs_modified
+      )
+    values (#{prsId,jdbcType=BIGINT}, #{compId,jdbcType=BIGINT}, #{prsLevel,jdbcType=VARCHAR}, 
+      #{prsText,jdbcType=LONGVARCHAR}, #{prsCreated,jdbcType=TIMESTAMP}, #{prsModified,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtPrescription">
+    <!--@mbg.generated-->
+    insert into pt_prescription
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="prsId != null">
+        prs_id,
+      </if>
+      <if test="compId != null">
+        comp_id,
+      </if>
+      <if test="prsLevel != null">
+        prs_level,
+      </if>
+      <if test="prsText != null">
+        prs_text,
+      </if>
+      <if test="prsCreated != null">
+        prs_created,
+      </if>
+      <if test="prsModified != null">
+        prs_modified,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="prsId != null">
+        #{prsId,jdbcType=BIGINT},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=BIGINT},
+      </if>
+      <if test="prsLevel != null">
+        #{prsLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="prsText != null">
+        #{prsText,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="prsCreated != null">
+        #{prsCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="prsModified != null">
+        #{prsModified,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

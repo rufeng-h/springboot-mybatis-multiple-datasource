@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.ams.PtCompetencyMapper">
+  <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.ams.PtCompetency">
+    <!--@mbg.generated-->
+    <!--@Table pt_competency-->
+    <id column="comp_id" jdbcType="BIGINT" property="compId" />
+    <result column="comp_name" jdbcType="VARCHAR" property="compName" />
+    <result column="comp_desp" jdbcType="VARCHAR" property="compDesp" />
+    <result column="comp_created" jdbcType="TIMESTAMP" property="compCreated" />
+    <result column="comp_midified" jdbcType="TIMESTAMP" property="compMidified" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    comp_id, comp_name, comp_desp, comp_created, comp_midified
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from pt_competency
+    where comp_id = #{compId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from pt_competency
+    where comp_id = #{compId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="comp_id" keyProperty="compId" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtCompetency" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pt_competency (comp_name, comp_desp, comp_created, 
+      comp_midified)
+    values (#{compName,jdbcType=VARCHAR}, #{compDesp,jdbcType=VARCHAR}, #{compCreated,jdbcType=TIMESTAMP}, 
+      #{compMidified,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="comp_id" keyProperty="compId" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtCompetency" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pt_competency
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="compName != null">
+        comp_name,
+      </if>
+      <if test="compDesp != null">
+        comp_desp,
+      </if>
+      <if test="compCreated != null">
+        comp_created,
+      </if>
+      <if test="compMidified != null">
+        comp_midified,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="compName != null">
+        #{compName,jdbcType=VARCHAR},
+      </if>
+      <if test="compDesp != null">
+        #{compDesp,jdbcType=VARCHAR},
+      </if>
+      <if test="compCreated != null">
+        #{compCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="compMidified != null">
+        #{compMidified,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtCompetency">
+    <!--@mbg.generated-->
+    update pt_competency
+    <set>
+      <if test="compName != null">
+        comp_name = #{compName,jdbcType=VARCHAR},
+      </if>
+      <if test="compDesp != null">
+        comp_desp = #{compDesp,jdbcType=VARCHAR},
+      </if>
+      <if test="compCreated != null">
+        comp_created = #{compCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="compMidified != null">
+        comp_midified = #{compMidified,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where comp_id = #{compId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtCompetency">
+    <!--@mbg.generated-->
+    update pt_competency
+    set comp_name = #{compName,jdbcType=VARCHAR},
+      comp_desp = #{compDesp,jdbcType=VARCHAR},
+      comp_created = #{compCreated,jdbcType=TIMESTAMP},
+      comp_midified = #{compMidified,jdbcType=TIMESTAMP}
+    where comp_id = #{compId,jdbcType=BIGINT}
+  </update>
+</mapper>

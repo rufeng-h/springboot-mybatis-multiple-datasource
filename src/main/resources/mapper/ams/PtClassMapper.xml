@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.ams.PtClassMapper">
+  <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.ams.PtClass">
+    <!--@mbg.generated-->
+    <!--@Table pt_class-->
+    <id column="cls_code" jdbcType="VARCHAR" property="clsCode" />
+    <result column="cls_id" jdbcType="BIGINT" property="clsId" />
+    <result column="cls_name" jdbcType="VARCHAR" property="clsName" />
+    <result column="clg_code" jdbcType="VARCHAR" property="clgCode" />
+    <result column="cls_entry_grade" jdbcType="INTEGER" property="clsEntryGrade" />
+    <result column="cls_entry_year" jdbcType="INTEGER" property="clsEntryYear" />
+    <result column="cls_created" jdbcType="TIMESTAMP" property="clsCreated" />
+    <result column="cls_modified" jdbcType="TIMESTAMP" property="clsModified" />
+    <result column="tea_id" jdbcType="VARCHAR" property="teaId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    cls_code, cls_id, cls_name, clg_code, cls_entry_grade, cls_entry_year, cls_created, 
+    cls_modified, tea_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from pt_class
+    where cls_code = #{clsCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from pt_class
+    where cls_code = #{clsCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtClass">
+    <!--@mbg.generated-->
+    insert into pt_class (cls_code, cls_id, cls_name, 
+      clg_code, cls_entry_grade, cls_entry_year, 
+      cls_created, cls_modified, tea_id
+      )
+    values (#{clsCode,jdbcType=VARCHAR}, #{clsId,jdbcType=BIGINT}, #{clsName,jdbcType=VARCHAR}, 
+      #{clgCode,jdbcType=VARCHAR}, #{clsEntryGrade,jdbcType=INTEGER}, #{clsEntryYear,jdbcType=INTEGER}, 
+      #{clsCreated,jdbcType=TIMESTAMP}, #{clsModified,jdbcType=TIMESTAMP}, #{teaId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtClass">
+    <!--@mbg.generated-->
+    insert into pt_class
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="clsCode != null">
+        cls_code,
+      </if>
+      <if test="clsId != null">
+        cls_id,
+      </if>
+      <if test="clsName != null">
+        cls_name,
+      </if>
+      <if test="clgCode != null">
+        clg_code,
+      </if>
+      <if test="clsEntryGrade != null">
+        cls_entry_grade,
+      </if>
+      <if test="clsEntryYear != null">
+        cls_entry_year,
+      </if>
+      <if test="clsCreated != null">
+        cls_created,
+      </if>
+      <if test="clsModified != null">
+        cls_modified,
+      </if>
+      <if test="teaId != null">
+        tea_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="clsCode != null">
+        #{clsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="clsId != null">
+        #{clsId,jdbcType=BIGINT},
+      </if>
+      <if test="clsName != null">
+        #{clsName,jdbcType=VARCHAR},
+      </if>
+      <if test="clgCode != null">
+        #{clgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="clsEntryGrade != null">
+        #{clsEntryGrade,jdbcType=INTEGER},
+      </if>
+      <if test="clsEntryYear != null">
+        #{clsEntryYear,jdbcType=INTEGER},
+      </if>
+      <if test="clsCreated != null">
+        #{clsCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clsModified != null">
+        #{clsModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="teaId != null">
+        #{teaId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtClass">
+    <!--@mbg.generated-->
+    update pt_class
+    <set>
+      <if test="clsId != null">
+        cls_id = #{clsId,jdbcType=BIGINT},
+      </if>
+      <if test="clsName != null">
+        cls_name = #{clsName,jdbcType=VARCHAR},
+      </if>
+      <if test="clgCode != null">
+        clg_code = #{clgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="clsEntryGrade != null">
+        cls_entry_grade = #{clsEntryGrade,jdbcType=INTEGER},
+      </if>
+      <if test="clsEntryYear != null">
+        cls_entry_year = #{clsEntryYear,jdbcType=INTEGER},
+      </if>
+      <if test="clsCreated != null">
+        cls_created = #{clsCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clsModified != null">
+        cls_modified = #{clsModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="teaId != null">
+        tea_id = #{teaId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where cls_code = #{clsCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtClass">
+    <!--@mbg.generated-->
+    update pt_class
+    set cls_id = #{clsId,jdbcType=BIGINT},
+      cls_name = #{clsName,jdbcType=VARCHAR},
+      clg_code = #{clgCode,jdbcType=VARCHAR},
+      cls_entry_grade = #{clsEntryGrade,jdbcType=INTEGER},
+      cls_entry_year = #{clsEntryYear,jdbcType=INTEGER},
+      cls_created = #{clsCreated,jdbcType=TIMESTAMP},
+      cls_modified = #{clsModified,jdbcType=TIMESTAMP},
+      tea_id = #{teaId,jdbcType=VARCHAR}
+    where cls_code = #{clsCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.ams.PtSubGroupShareMapper">
+  <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.ams.PtSubGroupShare">
+    <!--@mbg.generated-->
+    <!--@Table pt_sub_group_share-->
+    <id column="sid" jdbcType="BIGINT" property="sid" />
+    <result column="grp_id" jdbcType="BIGINT" property="grpId" />
+    <result column="tea_id" jdbcType="VARCHAR" property="teaId" />
+    <result column="share_tea_id" jdbcType="VARCHAR" property="shareTeaId" />
+    <result column="share_time" jdbcType="TIMESTAMP" property="shareTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    sid, grp_id, tea_id, share_tea_id, share_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from pt_sub_group_share
+    where sid = #{sid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from pt_sub_group_share
+    where sid = #{sid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="sid" keyProperty="sid" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtSubGroupShare" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pt_sub_group_share (grp_id, tea_id, share_tea_id, 
+      share_time)
+    values (#{grpId,jdbcType=BIGINT}, #{teaId,jdbcType=VARCHAR}, #{shareTeaId,jdbcType=VARCHAR}, 
+      #{shareTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="sid" keyProperty="sid" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtSubGroupShare" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pt_sub_group_share
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="grpId != null">
+        grp_id,
+      </if>
+      <if test="teaId != null">
+        tea_id,
+      </if>
+      <if test="shareTeaId != null">
+        share_tea_id,
+      </if>
+      <if test="shareTime != null">
+        share_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="grpId != null">
+        #{grpId,jdbcType=BIGINT},
+      </if>
+      <if test="teaId != null">
+        #{teaId,jdbcType=VARCHAR},
+      </if>
+      <if test="shareTeaId != null">
+        #{shareTeaId,jdbcType=VARCHAR},
+      </if>
+      <if test="shareTime != null">
+        #{shareTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtSubGroupShare">
+    <!--@mbg.generated-->
+    update pt_sub_group_share
+    <set>
+      <if test="grpId != null">
+        grp_id = #{grpId,jdbcType=BIGINT},
+      </if>
+      <if test="teaId != null">
+        tea_id = #{teaId,jdbcType=VARCHAR},
+      </if>
+      <if test="shareTeaId != null">
+        share_tea_id = #{shareTeaId,jdbcType=VARCHAR},
+      </if>
+      <if test="shareTime != null">
+        share_time = #{shareTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where sid = #{sid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtSubGroupShare">
+    <!--@mbg.generated-->
+    update pt_sub_group_share
+    set grp_id = #{grpId,jdbcType=BIGINT},
+      tea_id = #{teaId,jdbcType=VARCHAR},
+      share_tea_id = #{shareTeaId,jdbcType=VARCHAR},
+      share_time = #{shareTime,jdbcType=TIMESTAMP}
+    where sid = #{sid,jdbcType=BIGINT}
+  </update>
+</mapper>

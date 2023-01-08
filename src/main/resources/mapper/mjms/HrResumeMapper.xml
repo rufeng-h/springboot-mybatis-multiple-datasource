@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.mjms.HrResumeMapper">
+  <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.mjms.HrResume">
+    <!--@mbg.generated-->
+    <!--@Table hr_resume-->
+    <id column="rs_id" jdbcType="BIGINT" property="rsId" />
+    <result column="rs_name" jdbcType="VARCHAR" property="rsName" />
+    <result column="rs_desc" jdbcType="VARCHAR" property="rsDesc" />
+    <result column="rs_created" jdbcType="TIMESTAMP" property="rsCreated" />
+    <result column="rs_modified" jdbcType="TIMESTAMP" property="rsModified" />
+    <result column="rs_cand_id" jdbcType="BIGINT" property="rsCandId" />
+    <result column="rs_public" jdbcType="DECIMAL" property="rsPublic" />
+    <result column="rs_default" jdbcType="DECIMAL" property="rsDefault" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    rs_id, rs_name, rs_desc, rs_created, rs_modified, rs_cand_id, rs_public, rs_default
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from hr_resume
+    where rs_id = #{rsId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from hr_resume
+    where rs_id = #{rsId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="rs_id" keyProperty="rsId" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrResume" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into hr_resume (rs_name, rs_desc, rs_created, 
+      rs_modified, rs_cand_id, rs_public, 
+      rs_default)
+    values (#{rsName,jdbcType=VARCHAR}, #{rsDesc,jdbcType=VARCHAR}, #{rsCreated,jdbcType=TIMESTAMP}, 
+      #{rsModified,jdbcType=TIMESTAMP}, #{rsCandId,jdbcType=BIGINT}, #{rsPublic,jdbcType=DECIMAL}, 
+      #{rsDefault,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" keyColumn="rs_id" keyProperty="rsId" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrResume" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into hr_resume
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rsName != null">
+        rs_name,
+      </if>
+      <if test="rsDesc != null">
+        rs_desc,
+      </if>
+      <if test="rsCreated != null">
+        rs_created,
+      </if>
+      <if test="rsModified != null">
+        rs_modified,
+      </if>
+      <if test="rsCandId != null">
+        rs_cand_id,
+      </if>
+      <if test="rsPublic != null">
+        rs_public,
+      </if>
+      <if test="rsDefault != null">
+        rs_default,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rsName != null">
+        #{rsName,jdbcType=VARCHAR},
+      </if>
+      <if test="rsDesc != null">
+        #{rsDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="rsCreated != null">
+        #{rsCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsModified != null">
+        #{rsModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsCandId != null">
+        #{rsCandId,jdbcType=BIGINT},
+      </if>
+      <if test="rsPublic != null">
+        #{rsPublic,jdbcType=DECIMAL},
+      </if>
+      <if test="rsDefault != null">
+        #{rsDefault,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrResume">
+    <!--@mbg.generated-->
+    update hr_resume
+    <set>
+      <if test="rsName != null">
+        rs_name = #{rsName,jdbcType=VARCHAR},
+      </if>
+      <if test="rsDesc != null">
+        rs_desc = #{rsDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="rsCreated != null">
+        rs_created = #{rsCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsModified != null">
+        rs_modified = #{rsModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsCandId != null">
+        rs_cand_id = #{rsCandId,jdbcType=BIGINT},
+      </if>
+      <if test="rsPublic != null">
+        rs_public = #{rsPublic,jdbcType=DECIMAL},
+      </if>
+      <if test="rsDefault != null">
+        rs_default = #{rsDefault,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where rs_id = #{rsId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrResume">
+    <!--@mbg.generated-->
+    update hr_resume
+    set rs_name = #{rsName,jdbcType=VARCHAR},
+      rs_desc = #{rsDesc,jdbcType=VARCHAR},
+      rs_created = #{rsCreated,jdbcType=TIMESTAMP},
+      rs_modified = #{rsModified,jdbcType=TIMESTAMP},
+      rs_cand_id = #{rsCandId,jdbcType=BIGINT},
+      rs_public = #{rsPublic,jdbcType=DECIMAL},
+      rs_default = #{rsDefault,jdbcType=DECIMAL}
+    where rs_id = #{rsId,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.mjms.HrApplyMapper">
+  <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.mjms.HrApply">
+    <!--@mbg.generated-->
+    <!--@Table hr_apply-->
+    <id column="apy_id" jdbcType="BIGINT" property="apyId" />
+    <result column="apy_cand_id" jdbcType="BIGINT" property="apyCandId" />
+    <result column="apy_job_id" jdbcType="BIGINT" property="apyJobId" />
+    <result column="apy_status" jdbcType="CHAR" property="apyStatus" />
+    <result column="apy_created" jdbcType="TIMESTAMP" property="apyCreated" />
+    <result column="apy_modified" jdbcType="TIMESTAMP" property="apyModified" />
+    <result column="apy_oper_admin" jdbcType="BIGINT" property="apyOperAdmin" />
+    <result column="apy_rs_id" jdbcType="BIGINT" property="apyRsId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    apy_id, apy_cand_id, apy_job_id, apy_status, apy_created, apy_modified, apy_oper_admin, 
+    apy_rs_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from hr_apply
+    where apy_id = #{apyId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from hr_apply
+    where apy_id = #{apyId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="apy_id" keyProperty="apyId" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrApply" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into hr_apply (apy_cand_id, apy_job_id, apy_status, 
+      apy_created, apy_modified, apy_oper_admin, 
+      apy_rs_id)
+    values (#{apyCandId,jdbcType=BIGINT}, #{apyJobId,jdbcType=BIGINT}, #{apyStatus,jdbcType=CHAR}, 
+      #{apyCreated,jdbcType=TIMESTAMP}, #{apyModified,jdbcType=TIMESTAMP}, #{apyOperAdmin,jdbcType=BIGINT}, 
+      #{apyRsId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="apy_id" keyProperty="apyId" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrApply" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into hr_apply
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="apyCandId != null">
+        apy_cand_id,
+      </if>
+      <if test="apyJobId != null">
+        apy_job_id,
+      </if>
+      <if test="apyStatus != null">
+        apy_status,
+      </if>
+      <if test="apyCreated != null">
+        apy_created,
+      </if>
+      <if test="apyModified != null">
+        apy_modified,
+      </if>
+      <if test="apyOperAdmin != null">
+        apy_oper_admin,
+      </if>
+      <if test="apyRsId != null">
+        apy_rs_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="apyCandId != null">
+        #{apyCandId,jdbcType=BIGINT},
+      </if>
+      <if test="apyJobId != null">
+        #{apyJobId,jdbcType=BIGINT},
+      </if>
+      <if test="apyStatus != null">
+        #{apyStatus,jdbcType=CHAR},
+      </if>
+      <if test="apyCreated != null">
+        #{apyCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="apyModified != null">
+        #{apyModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="apyOperAdmin != null">
+        #{apyOperAdmin,jdbcType=BIGINT},
+      </if>
+      <if test="apyRsId != null">
+        #{apyRsId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrApply">
+    <!--@mbg.generated-->
+    update hr_apply
+    <set>
+      <if test="apyCandId != null">
+        apy_cand_id = #{apyCandId,jdbcType=BIGINT},
+      </if>
+      <if test="apyJobId != null">
+        apy_job_id = #{apyJobId,jdbcType=BIGINT},
+      </if>
+      <if test="apyStatus != null">
+        apy_status = #{apyStatus,jdbcType=CHAR},
+      </if>
+      <if test="apyCreated != null">
+        apy_created = #{apyCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="apyModified != null">
+        apy_modified = #{apyModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="apyOperAdmin != null">
+        apy_oper_admin = #{apyOperAdmin,jdbcType=BIGINT},
+      </if>
+      <if test="apyRsId != null">
+        apy_rs_id = #{apyRsId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where apy_id = #{apyId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrApply">
+    <!--@mbg.generated-->
+    update hr_apply
+    set apy_cand_id = #{apyCandId,jdbcType=BIGINT},
+      apy_job_id = #{apyJobId,jdbcType=BIGINT},
+      apy_status = #{apyStatus,jdbcType=CHAR},
+      apy_created = #{apyCreated,jdbcType=TIMESTAMP},
+      apy_modified = #{apyModified,jdbcType=TIMESTAMP},
+      apy_oper_admin = #{apyOperAdmin,jdbcType=BIGINT},
+      apy_rs_id = #{apyRsId,jdbcType=BIGINT}
+    where apy_id = #{apyId,jdbcType=BIGINT}
+  </update>
+</mapper>

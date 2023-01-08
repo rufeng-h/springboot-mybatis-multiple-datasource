@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.ams.PtScoreMapper">
+  <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.ams.PtScore">
+    <!--@mbg.generated-->
+    <!--@Table pt_score-->
+    <id column="sco_id" jdbcType="BIGINT" property="scoId" />
+    <result column="stu_id" jdbcType="VARCHAR" property="stuId" />
+    <result column="sub_id" jdbcType="BIGINT" property="subId" />
+    <result column="sco_data" jdbcType="DECIMAL" property="scoData" />
+    <result column="sco_created" jdbcType="TIMESTAMP" property="scoCreated" />
+    <result column="sco_modified" jdbcType="TIMESTAMP" property="scoModified" />
+    <result column="ms_id" jdbcType="BIGINT" property="msId" />
+    <result column="sco_level" jdbcType="VARCHAR" property="scoLevel" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    sco_id, stu_id, sub_id, sco_data, sco_created, sco_modified, ms_id, sco_level, score
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from pt_score
+    where sco_id = #{scoId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from pt_score
+    where sco_id = #{scoId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="sco_id" keyProperty="scoId" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtScore" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pt_score (stu_id, sub_id, sco_data, 
+      sco_created, sco_modified, ms_id, 
+      sco_level, score)
+    values (#{stuId,jdbcType=VARCHAR}, #{subId,jdbcType=BIGINT}, #{scoData,jdbcType=DECIMAL}, 
+      #{scoCreated,jdbcType=TIMESTAMP}, #{scoModified,jdbcType=TIMESTAMP}, #{msId,jdbcType=BIGINT}, 
+      #{scoLevel,jdbcType=VARCHAR}, #{score,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="sco_id" keyProperty="scoId" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtScore" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pt_score
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="stuId != null">
+        stu_id,
+      </if>
+      <if test="subId != null">
+        sub_id,
+      </if>
+      <if test="scoData != null">
+        sco_data,
+      </if>
+      <if test="scoCreated != null">
+        sco_created,
+      </if>
+      <if test="scoModified != null">
+        sco_modified,
+      </if>
+      <if test="msId != null">
+        ms_id,
+      </if>
+      <if test="scoLevel != null">
+        sco_level,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="stuId != null">
+        #{stuId,jdbcType=VARCHAR},
+      </if>
+      <if test="subId != null">
+        #{subId,jdbcType=BIGINT},
+      </if>
+      <if test="scoData != null">
+        #{scoData,jdbcType=DECIMAL},
+      </if>
+      <if test="scoCreated != null">
+        #{scoCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scoModified != null">
+        #{scoModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="msId != null">
+        #{msId,jdbcType=BIGINT},
+      </if>
+      <if test="scoLevel != null">
+        #{scoLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtScore">
+    <!--@mbg.generated-->
+    update pt_score
+    <set>
+      <if test="stuId != null">
+        stu_id = #{stuId,jdbcType=VARCHAR},
+      </if>
+      <if test="subId != null">
+        sub_id = #{subId,jdbcType=BIGINT},
+      </if>
+      <if test="scoData != null">
+        sco_data = #{scoData,jdbcType=DECIMAL},
+      </if>
+      <if test="scoCreated != null">
+        sco_created = #{scoCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scoModified != null">
+        sco_modified = #{scoModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="msId != null">
+        ms_id = #{msId,jdbcType=BIGINT},
+      </if>
+      <if test="scoLevel != null">
+        sco_level = #{scoLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=INTEGER},
+      </if>
+    </set>
+    where sco_id = #{scoId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtScore">
+    <!--@mbg.generated-->
+    update pt_score
+    set stu_id = #{stuId,jdbcType=VARCHAR},
+      sub_id = #{subId,jdbcType=BIGINT},
+      sco_data = #{scoData,jdbcType=DECIMAL},
+      sco_created = #{scoCreated,jdbcType=TIMESTAMP},
+      sco_modified = #{scoModified,jdbcType=TIMESTAMP},
+      ms_id = #{msId,jdbcType=BIGINT},
+      sco_level = #{scoLevel,jdbcType=VARCHAR},
+      score = #{score,jdbcType=INTEGER}
+    where sco_id = #{scoId,jdbcType=BIGINT}
+  </update>
+</mapper>

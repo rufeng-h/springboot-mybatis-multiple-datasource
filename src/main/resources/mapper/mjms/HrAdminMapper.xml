@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.mjms.HrAdminMapper">
+  <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.mjms.HrAdmin">
+    <!--@mbg.generated-->
+    <!--@Table hr_admin-->
+    <id column="admin_id" jdbcType="BIGINT" property="adminId" />
+    <result column="admin_name" jdbcType="VARCHAR" property="adminName" />
+    <result column="admin_phone" jdbcType="VARCHAR" property="adminPhone" />
+    <result column="admin_email" jdbcType="VARCHAR" property="adminEmail" />
+    <result column="admin_avatar" jdbcType="VARCHAR" property="adminAvatar" />
+    <result column="admin_created" jdbcType="TIMESTAMP" property="adminCreated" />
+    <result column="admin_modified" jdbcType="TIMESTAMP" property="adminModified" />
+    <result column="admin_status" jdbcType="CHAR" property="adminStatus" />
+    <result column="admin_pwd" jdbcType="VARCHAR" property="adminPwd" />
+    <result column="admin_last_login" jdbcType="TIMESTAMP" property="adminLastLogin" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    admin_id, admin_name, admin_phone, admin_email, admin_avatar, admin_created, admin_modified, 
+    admin_status, admin_pwd, admin_last_login
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from hr_admin
+    where admin_id = #{adminId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from hr_admin
+    where admin_id = #{adminId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="admin_id" keyProperty="adminId" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrAdmin" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into hr_admin (admin_name, admin_phone, admin_email, 
+      admin_avatar, admin_created, admin_modified, 
+      admin_status, admin_pwd, admin_last_login
+      )
+    values (#{adminName,jdbcType=VARCHAR}, #{adminPhone,jdbcType=VARCHAR}, #{adminEmail,jdbcType=VARCHAR}, 
+      #{adminAvatar,jdbcType=VARCHAR}, #{adminCreated,jdbcType=TIMESTAMP}, #{adminModified,jdbcType=TIMESTAMP}, 
+      #{adminStatus,jdbcType=CHAR}, #{adminPwd,jdbcType=VARCHAR}, #{adminLastLogin,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="admin_id" keyProperty="adminId" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrAdmin" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into hr_admin
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="adminName != null">
+        admin_name,
+      </if>
+      <if test="adminPhone != null">
+        admin_phone,
+      </if>
+      <if test="adminEmail != null">
+        admin_email,
+      </if>
+      <if test="adminAvatar != null">
+        admin_avatar,
+      </if>
+      <if test="adminCreated != null">
+        admin_created,
+      </if>
+      <if test="adminModified != null">
+        admin_modified,
+      </if>
+      <if test="adminStatus != null">
+        admin_status,
+      </if>
+      <if test="adminPwd != null">
+        admin_pwd,
+      </if>
+      <if test="adminLastLogin != null">
+        admin_last_login,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="adminName != null">
+        #{adminName,jdbcType=VARCHAR},
+      </if>
+      <if test="adminPhone != null">
+        #{adminPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="adminEmail != null">
+        #{adminEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="adminAvatar != null">
+        #{adminAvatar,jdbcType=VARCHAR},
+      </if>
+      <if test="adminCreated != null">
+        #{adminCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adminModified != null">
+        #{adminModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adminStatus != null">
+        #{adminStatus,jdbcType=CHAR},
+      </if>
+      <if test="adminPwd != null">
+        #{adminPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="adminLastLogin != null">
+        #{adminLastLogin,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrAdmin">
+    <!--@mbg.generated-->
+    update hr_admin
+    <set>
+      <if test="adminName != null">
+        admin_name = #{adminName,jdbcType=VARCHAR},
+      </if>
+      <if test="adminPhone != null">
+        admin_phone = #{adminPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="adminEmail != null">
+        admin_email = #{adminEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="adminAvatar != null">
+        admin_avatar = #{adminAvatar,jdbcType=VARCHAR},
+      </if>
+      <if test="adminCreated != null">
+        admin_created = #{adminCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adminModified != null">
+        admin_modified = #{adminModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adminStatus != null">
+        admin_status = #{adminStatus,jdbcType=CHAR},
+      </if>
+      <if test="adminPwd != null">
+        admin_pwd = #{adminPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="adminLastLogin != null">
+        admin_last_login = #{adminLastLogin,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where admin_id = #{adminId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.windcf.springmybatismultipledatasource.model.mjms.HrAdmin">
+    <!--@mbg.generated-->
+    update hr_admin
+    set admin_name = #{adminName,jdbcType=VARCHAR},
+      admin_phone = #{adminPhone,jdbcType=VARCHAR},
+      admin_email = #{adminEmail,jdbcType=VARCHAR},
+      admin_avatar = #{adminAvatar,jdbcType=VARCHAR},
+      admin_created = #{adminCreated,jdbcType=TIMESTAMP},
+      admin_modified = #{adminModified,jdbcType=TIMESTAMP},
+      admin_status = #{adminStatus,jdbcType=CHAR},
+      admin_pwd = #{adminPwd,jdbcType=VARCHAR},
+      admin_last_login = #{adminLastLogin,jdbcType=TIMESTAMP}
+    where admin_id = #{adminId,jdbcType=BIGINT}
+  </update>
+</mapper>

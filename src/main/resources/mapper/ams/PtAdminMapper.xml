@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.ams.PtAdminMapper">
+  <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.ams.PtAdmin">
+    <!--@mbg.generated-->
+    <!--@Table pt_admin-->
+    <id column="admin_id" jdbcType="VARCHAR" property="adminId" />
+    <result column="aid" jdbcType="BIGINT" property="aid" />
+    <result column="admin_name" jdbcType="VARCHAR" property="adminName" />
+    <result column="admin_created" jdbcType="TIMESTAMP" property="adminCreated" />
+    <result column="admin_modified" jdbcType="TIMESTAMP" property="adminModified" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="admin_last_login" jdbcType="TIMESTAMP" property="adminLastLogin" />
+    <result column="admin_desp" jdbcType="VARCHAR" property="adminDesp" />
+    <result column="admin_gender" jdbcType="OTHER" property="adminGender" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    admin_id, aid, admin_name, admin_created, admin_modified, `password`, phone, email, 
+    avatar, admin_last_login, admin_desp, admin_gender
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from pt_admin
+    where admin_id = #{adminId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from pt_admin
+    where admin_id = #{adminId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtAdmin">
+    <!--@mbg.generated-->
+    insert into pt_admin (admin_id, aid, admin_name, 
+      admin_created, admin_modified, `password`, 
+      phone, email, avatar, 
+      admin_last_login, admin_desp, admin_gender
+      )
+    values (#{adminId,jdbcType=VARCHAR}, #{aid,jdbcType=BIGINT}, #{adminName,jdbcType=VARCHAR}, 
+      #{adminCreated,jdbcType=TIMESTAMP}, #{adminModified,jdbcType=TIMESTAMP}, #{password,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{avatar,jdbcType=VARCHAR}, 
+      #{adminLastLogin,jdbcType=TIMESTAMP}, #{adminDesp,jdbcType=VARCHAR}, #{adminGender,jdbcType=OTHER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtAdmin">
+    <!--@mbg.generated-->
+    insert into pt_admin
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="adminId != null">
+        admin_id,
+      </if>
+      <if test="aid != null">
+        aid,
+      </if>
+      <if test="adminName != null">
+        admin_name,
+      </if>
+      <if test="adminCreated != null">
+        admin_created,
+      </if>
+      <if test="adminModified != null">
+        admin_modified,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="avatar != null">
+        avatar,
+      </if>
+      <if test="adminLastLogin != null">
+        admin_last_login,
+      </if>
+      <if test="adminDesp != null">
+        admin_desp,
+      </if>
+      <if test="adminGender != null">
+        admin_gender,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="adminId != null">
+        #{adminId,jdbcType=VARCHAR},
+      </if>
+      <if test="aid != null">
+        #{aid,jdbcType=BIGINT},
+      </if>
+      <if test="adminName != null">
+        #{adminName,jdbcType=VARCHAR},
+      </if>
+      <if test="adminCreated != null">
+        #{adminCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adminModified != null">
+        #{adminModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="adminLastLogin != null">
+        #{adminLastLogin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adminDesp != null">
+        #{adminDesp,jdbcType=VARCHAR},
+      </if>
+      <if test="adminGender != null">
+        #{adminGender,jdbcType=OTHER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtAdmin">
+    <!--@mbg.generated-->
+    update pt_admin
+    <set>
+      <if test="aid != null">
+        aid = #{aid,jdbcType=BIGINT},
+      </if>
+      <if test="adminName != null">
+        admin_name = #{adminName,jdbcType=VARCHAR},
+      </if>
+      <if test="adminCreated != null">
+        admin_created = #{adminCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adminModified != null">
+        admin_modified = #{adminModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="adminLastLogin != null">
+        admin_last_login = #{adminLastLogin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adminDesp != null">
+        admin_desp = #{adminDesp,jdbcType=VARCHAR},
+      </if>
+      <if test="adminGender != null">
+        admin_gender = #{adminGender,jdbcType=OTHER},
+      </if>
+    </set>
+    where admin_id = #{adminId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtAdmin">
+    <!--@mbg.generated-->
+    update pt_admin
+    set aid = #{aid,jdbcType=BIGINT},
+      admin_name = #{adminName,jdbcType=VARCHAR},
+      admin_created = #{adminCreated,jdbcType=TIMESTAMP},
+      admin_modified = #{adminModified,jdbcType=TIMESTAMP},
+      `password` = #{password,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      avatar = #{avatar,jdbcType=VARCHAR},
+      admin_last_login = #{adminLastLogin,jdbcType=TIMESTAMP},
+      admin_desp = #{adminDesp,jdbcType=VARCHAR},
+      admin_gender = #{adminGender,jdbcType=OTHER}
+    where admin_id = #{adminId,jdbcType=VARCHAR}
+  </update>
+</mapper>

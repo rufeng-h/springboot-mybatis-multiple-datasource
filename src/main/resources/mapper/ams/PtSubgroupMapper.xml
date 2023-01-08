@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.windcf.springmybatismultipledatasource.mapper.ams.PtSubgroupMapper">
+  <resultMap id="BaseResultMap" type="com.windcf.springmybatismultipledatasource.model.ams.PtSubgroup">
+    <!--@mbg.generated-->
+    <!--@Table pt_subgroup-->
+    <id column="grp_id" jdbcType="BIGINT" property="grpId" />
+    <result column="grp_name" jdbcType="VARCHAR" property="grpName" />
+    <result column="grp_desp" jdbcType="VARCHAR" property="grpDesp" />
+    <result column="grp_created" jdbcType="TIMESTAMP" property="grpCreated" />
+    <result column="grp_created_tea_id" jdbcType="VARCHAR" property="grpCreatedTeaId" />
+    <result column="grp_modified" jdbcType="TIMESTAMP" property="grpModified" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    grp_id, grp_name, grp_desp, grp_created, grp_created_tea_id, grp_modified
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from pt_subgroup
+    where grp_id = #{grpId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from pt_subgroup
+    where grp_id = #{grpId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="grp_id" keyProperty="grpId" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtSubgroup" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pt_subgroup (grp_name, grp_desp, grp_created, 
+      grp_created_tea_id, grp_modified)
+    values (#{grpName,jdbcType=VARCHAR}, #{grpDesp,jdbcType=VARCHAR}, #{grpCreated,jdbcType=TIMESTAMP}, 
+      #{grpCreatedTeaId,jdbcType=VARCHAR}, #{grpModified,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="grp_id" keyProperty="grpId" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtSubgroup" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pt_subgroup
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="grpName != null">
+        grp_name,
+      </if>
+      <if test="grpDesp != null">
+        grp_desp,
+      </if>
+      <if test="grpCreated != null">
+        grp_created,
+      </if>
+      <if test="grpCreatedTeaId != null">
+        grp_created_tea_id,
+      </if>
+      <if test="grpModified != null">
+        grp_modified,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="grpName != null">
+        #{grpName,jdbcType=VARCHAR},
+      </if>
+      <if test="grpDesp != null">
+        #{grpDesp,jdbcType=VARCHAR},
+      </if>
+      <if test="grpCreated != null">
+        #{grpCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="grpCreatedTeaId != null">
+        #{grpCreatedTeaId,jdbcType=VARCHAR},
+      </if>
+      <if test="grpModified != null">
+        #{grpModified,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtSubgroup">
+    <!--@mbg.generated-->
+    update pt_subgroup
+    <set>
+      <if test="grpName != null">
+        grp_name = #{grpName,jdbcType=VARCHAR},
+      </if>
+      <if test="grpDesp != null">
+        grp_desp = #{grpDesp,jdbcType=VARCHAR},
+      </if>
+      <if test="grpCreated != null">
+        grp_created = #{grpCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="grpCreatedTeaId != null">
+        grp_created_tea_id = #{grpCreatedTeaId,jdbcType=VARCHAR},
+      </if>
+      <if test="grpModified != null">
+        grp_modified = #{grpModified,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where grp_id = #{grpId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.windcf.springmybatismultipledatasource.model.ams.PtSubgroup">
+    <!--@mbg.generated-->
+    update pt_subgroup
+    set grp_name = #{grpName,jdbcType=VARCHAR},
+      grp_desp = #{grpDesp,jdbcType=VARCHAR},
+      grp_created = #{grpCreated,jdbcType=TIMESTAMP},
+      grp_created_tea_id = #{grpCreatedTeaId,jdbcType=VARCHAR},
+      grp_modified = #{grpModified,jdbcType=TIMESTAMP}
+    where grp_id = #{grpId,jdbcType=BIGINT}
+  </update>
+</mapper>
