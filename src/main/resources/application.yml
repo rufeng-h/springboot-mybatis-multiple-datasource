@@ -7,7 +7,7 @@ spring:
     ams:
       driver-class-name: com.mysql.cj.jdbc.Driver
       username: root
-      password: '@rufeng20001123'
+      password: '1234567890.'
       url: jdbc:mysql://localhost:3306/healthman_test?serverTimezone=Asia/Shanghai
     mjms:
       driver-class-name: dm.jdbc.driver.DmDriver
